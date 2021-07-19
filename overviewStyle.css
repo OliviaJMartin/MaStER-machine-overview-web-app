@@ -1,0 +1,81 @@
+body {
+    margin: auto;
+    background-color: #00004d
+}
+
+button[type=submit] {
+    width:350px;
+    height: 800px;
+    transform: translate(20%, 10%);
+    align: center;
+    padding: 5px 15px;
+    border: 1px solid rgb(0,0,0);
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+    font-size: 13px;
+    color: black;
+}
+
+button[type=submit]:hover {
+    background-color: #d8d8da;
+}
+
+text{
+    font-size: 20px;
+}
+
+machineNames{
+    font-size: 35px;
+}
+
+#circleLA1 {
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background: green;
+    border-radius: 50%;
+}
+
+#circleLA2 {
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background: green;
+    border-radius: 50%;
+}
+
+#circleLA4 {
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background: green;
+    border-radius: 50%;
+}
+#circleCT {
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background: green;
+    border-radius: 50%;
+}
+#circleBrachy {
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background: green;
+    border-radius: 50%;
+}
+
+image-container {
+    width: 300px;
+    heights: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    background: black;
+}
