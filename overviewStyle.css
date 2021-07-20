@@ -1,12 +1,24 @@
 body {
+    width: 1000px
     margin: auto;
-    background-color: #00004d
+    background-color: #00004d;
 }
 
-button[type=submit] {
-    width:350px;
-    height: 800px;
-    transform: translate(20%, 10%);
+div.titleContainer {
+    width: 100%;
+    height: 10%
+    margin-left: auto;
+    margin-right: auto;
+    Position: absolute;
+    background: #00004d;
+    text-align: center;
+    color: white;
+}
+
+.machineContainer {
+    width:300px;
+    height: 700px;
+    transform: translate(37%, 20%);
     align: center;
     padding: 5px 15px;
     border: 1px solid rgb(0,0,0);
@@ -14,19 +26,14 @@ button[type=submit] {
     -webkit-border-radius: 5px;
     border-radius:5px;
     font-size: 13px;
-    color: black;
+    background: white;
+    display:inline-block;
+    text-align: center;
+
 }
 
-button[type=submit]:hover {
+.machineContainer:hover {
     background-color: #d8d8da;
-}
-
-text{
-    font-size: 20px;
-}
-
-machineNames{
-    font-size: 35px;
 }
 
 #circleLA1 {
@@ -72,10 +79,16 @@ machineNames{
     border-radius: 50%;
 }
 
-image-container {
-    width: 300px;
-    heights: 200px;
+
+div.imageContainer {
+    width: 250px;
+    height: 400px;
     margin-left: auto;
     margin-right: auto;
-    background: black;
+    position: relative;
+    background: grey;
+}
+
+text{
+    font-size: 20px;
 }

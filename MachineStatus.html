@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Machine Status</title>
+    <link rel="stylesheet" type="text/css" href="machineStatusStyle.css">
+</head>
+<body>
+    <h1>Machine Status Page</h1>
+    <div class="statusCircle"></div>
+    <div class="infoContainer">
+        <text>
+            <b>
+                Machine Name:
+                <br>
+                Serial No:
+                <br>
+                S/W Version:
+            </b>
+         </text>
+        </div>
+        <div class="infoContainer">
+
+            <text>
+                <b>
+                    <br>
+                    Current Status:
+                    <br>
+                    Current Owner:
+                </b>
+            </text>
+        <br> <br>
+     </div>
+    <div style="overflow-x:auto;">
+        <table class = "handoverTable">
+            <thead>
+                <tr>
+                    <th>Start (Date/Time)</th>
+                    <th>End (Date/Time)</th>
+                    <th>Description</th>
+                    <th>Current user</th>
+                    <th>Clinical status</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>10/07/2021 07:30</td>
+                <td>10/07/2021 13:30</td>
+                <td>Treatment</td>
+                <td>Techie T</td>
+                <td>Clinical with limitations</td>
+                <td>dummy values</td>
+            </tr>
+            <tr>
+                <td>10/07/2021 06:00</td>
+                <td>10/07/2021 07:30</td>
+                <td>run up & Daily QA</td>
+                <td>Rad R</td>
+                <td>Clinically ready</td>
+                <td>dummy values</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br> <br>
+    <button type="Submit">Update</button>
+    <button type="Submit">Logout</button>
+</body>
+</html>
