@@ -1,0 +1,26 @@
+body{
+    margin:auto;
+    background-color: #00004d;
+    color: white;
+}
+
+.SplittingContainer{
+    width:300px;
+    transform: translate(37%, 20%);
+    align: center;
+    padding: 5px 15px;
+    border: 1px solid rgb(0,0,0);
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+    font-size: 13px;
+    background: white;
+    display:inline-block;
+    text-align: center;
+    color: black;
+}
+
+text{
+    font-size: 20px;
+}
+

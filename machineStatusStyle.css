@@ -68,12 +68,23 @@ text{
 }
 
 .HandoverTable tbody:first-child() {
-    background-color: #d69b9b;
+    background-color: #a6a6a6;
     color; black
+}
+
+.BTNContainer {
+transform: translate(46%,0%);
+    width: 50%;
+    height: 100px;
+    vertical-align:center;
+    display:inline-block;
+    padding: 20px;
+    text-align: center;
 }
 
 button[type=submit] {
     align: center;
+    position:relative;
     padding: 5px 15px;
     background: white;
     border: 1px solid rgb(0,0,0);
@@ -86,8 +97,9 @@ button[type=submit] {
     margin-left: auto;
     margin-right: auto;
     font-size: 20px;
+    display:inline-block;
 }
 
 button[type=submit]:hover {
-    background-color:rgb(72,73,75);
+    background-color:#a6a6a6;
 }
