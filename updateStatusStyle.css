@@ -2,11 +2,16 @@ body{
     margin:auto;
     background-color: #00004d;
     color: white;
+    padding: 5%;
 }
 
-.SplittingContainer{
-    width:300px;
-    transform: translate(37%, 20%);
+h1{
+    text-align: center;
+}
+
+.imageContainer{
+    width:25%;
+    Height: 600px;
     align: center;
     padding: 5px 15px;
     border: 1px solid rgb(0,0,0);
@@ -18,9 +23,149 @@ body{
     display:inline-block;
     text-align: center;
     color: black;
+    float: right;
+    position: relative;
+}
+
+.containContainers{
+    width:60%;
+    Height: 100%;
+    align: center;
+    padding: 5px 15px;
+    border: 1px solid rgb(0,0,0);
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+    font-size: 13px;
+    background: white;
+    display:inline-block;
+    text-align: center;
+    color: black;
+    padding-right: 5%;
+}
+.keyContainer{
+    width:300px;
+    Height: 100%;
+    float: right;
+    vertical-align: center;
+    padding: 15px 15px;
+    padding-top: 50px;
+    padding-bottom:50px;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+    font-size: 13px;
+    background: white;
+    display:inline-block;
+    text-align: center;
+    color: black;
+}
+.inputContainer{
+    width:400px;
+    Height: 100%;
+    align: center;
+    vertical-align: center;
+    padding: 5px 15px;
+    padding-top: 50px;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+    font-size: 13px;
+    background: white;
+    display:inline-block;
+    text-align: center;
+    color: black;
+}
+
+@min-width: 600px{
+    .imageContainer{
+        width: 400px;
+        background-color: green;
+    }
+    .containContainers{
+        width: 400px;
+        padding: 0%;
+    }
+    .keyContainer{
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }
 
 text{
-    font-size: 20px;
+    font-size: 25px;
 }
 
+input{
+    width: 80%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius:4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+textarea {
+  width: 80%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  resize: none;
+}
+
+#circleClinical {
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background: green;
+    border-radius: 50%;
+}
+
+#circleLimitations {
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background: orangered;
+    border-radius: 50%;
+}
+
+#circleService {
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background: Blue;
+    border-radius: 50%;
+}
+
+#circleUnserviceable {
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background: Red;
+    border-radius: 50%;
+}
+
+button[type=submit] {
+    align: center;
+    width: 70%;
+    Height: 50px;
+    padding: 5px 15px;
+    background: #00004d;
+    border: 1px solid rgb(0,0,0);
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+    font-size: 20px;
+    color: white;
+}
+
+button[type=submit]:hover {
+    background-color:rgb(72,73,75);
+}
