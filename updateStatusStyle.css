@@ -2,7 +2,9 @@ body{
     margin:auto;
     background-color: #00004d;
     color: white;
-    padding: 5%;
+    padding-left: 10%;
+    padding-right:10%;
+    padding-top:2%
 }
 
 h1{
@@ -10,7 +12,7 @@ h1{
 }
 
 .imageContainer{
-    width:25%;
+    width:400px;
     Height: 600px;
     align: center;
     padding: 5px 15px;
@@ -28,7 +30,7 @@ h1{
 }
 
 .containContainers{
-    width:60%;
+    width: 500px or 70%;
     Height: 100%;
     align: center;
     padding: 5px 15px;
@@ -46,7 +48,7 @@ h1{
 .keyContainer{
     width:300px;
     Height: 100%;
-    float: right;
+    float: right or left;
     vertical-align: center;
     padding: 15px 15px;
     padding-top: 50px;
@@ -77,22 +79,6 @@ h1{
     color: black;
 }
 
-@min-width: 600px{
-    .imageContainer{
-        width: 400px;
-        background-color: green;
-    }
-    .containContainers{
-        width: 400px;
-        padding: 0%;
-    }
-    .keyContainer{
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-}
 
 text{
     font-size: 25px;
