@@ -47,11 +47,11 @@ text{
     background-color: rgb(75,75,75);
     color:white;
     text-align:center;
-    height: 50px
+    height: 50px;
 }
 
-.handoverTable th, /* tr = table header*/
-.table td { /* tr = table data*/
+.handoverTable th, /* td = table header*/
+.table td { /* td = table data*/
     padding: 12px 15px;
 }
 
@@ -61,6 +61,7 @@ text{
     color: black;
     text-align: center;
     height: 35px;
+    column-rule: 4px double #ff00ff;
 }
 
 .handoverTable tbody tr:hover {
@@ -85,7 +86,7 @@ transform: translate(46%,0%);
 button[type=submit] {
     align: center;
     position:relative;
-    padding: 5px 15px;
+    padding: 15px 15px;
     background: white;
     border: 1px solid rgb(0,0,0);
     cursor: pointer;
@@ -93,7 +94,7 @@ button[type=submit] {
     border-radius:5px;
     font-size: 13px;
     color: black;
-    width: 100px;
+    width: 250px;
     margin-left: auto;
     margin-right: auto;
     font-size: 20px;

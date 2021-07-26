@@ -37,9 +37,10 @@
             <thead>
                 <tr>
                     <th>Start (Date/Time)</th>
+                    <th>Starting user</th>
                     <th>End (Date/Time)</th>
+                    <th>Ending user</th>
                     <th>Description</th>
-                    <th>Current user</th>
                     <th>Clinical status</th>
                     <th>Comments</th>
                 </tr>
@@ -47,17 +48,19 @@
             <tbody>
             <tr>
                 <td>10/07/2021 07:30</td>
-                <td>10/07/2021 13:30</td>
-                <td>Treatment</td>
                 <td>Techie T</td>
+                <td>10/07/2021 13:30</td>
+                <td>Fred J</td>
+                <td>Treatment</td>
                 <td>Clinical with limitations</td>
                 <td>dummy values</td>
             </tr>
             <tr>
                 <td>10/07/2021 06:00</td>
-                <td>10/07/2021 07:30</td>
-                <td>run up & Daily QA</td>
                 <td>Rad R</td>
+                <td>10/07/2021 07:30</td>
+                <td>Techie T</td>
+                <td>run up & Daily QA</td>
                 <td>Clinically ready</td>
                 <td>dummy values</td>
             </tr>
@@ -66,8 +69,9 @@
     </div>
     <br> <br>
     <div class="BTNContainer">
-        <button type="Submit">Update</button>
-    <button type="Submit">Logout</button>
+        <button type="Submit">Start New status</button>
+        <button type="Submit">End Previous status</button>
+        <button type="Submit">Logout</button>
     </div>
 
 </body>
