@@ -16,7 +16,13 @@
       <br><br>
       <text>*Status:</text>
       <br>
-      <input type="text" placeholder="Enter Status" name="status" required> <!--text box to be swapped out to combo when django is added -->
+      <select name="status" id="status">
+        <option value="" selected="selected">Select status</option>
+        <option value="" >Fully Serviceable (Clinical)</option>
+        <option value="" >Clinical with some limitations</option>
+        <option value="" >On Service/PMI</option>
+        <option value="" >Unserviceable (not clinical)</option>
+      </select>
       <br> <br>
       <text>*Description:</text>
       <br>
@@ -25,9 +31,9 @@
       <text>Comments:</text>
       <textarea rows="5" id="multiLineInput"></textarea> <!-- multi-line textbox for comments -->
       <br><br><br><br>
-      <button type="submit">Submit</button>
+      <button type="submit" id="submit">Submit</button>
       <br><br>
-      <button type="submit">Discard</button>
+      <button type="submit" id="discard">Discard</button>
       <br>
     </div>
 
@@ -47,5 +53,14 @@
       <text>Unserviceable (not clinical - i.e. ongoing fault)</text>
     </div>
   </div>
+  <script>
+    document.getElementById("submit").onclick = function() {
+            location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/MachineStatus.html";
+        }
+
+    document.getElementById("discard").onclick = function() {
+            location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/UpdateStatus.html";
+        }
+  </script>
 </body>
 </html>

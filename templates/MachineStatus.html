@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <title>Machine Status</title>
     <link rel="stylesheet" type="text/css" href="../styles/machineStatusStyle.css">
+    <script>
+        var machineName = sessionStorage.getItem("machineName");
+    </script>
 </head>
 <body>
-
     <h1>Machine Status Page</h1>
     <div class="statusCircle"></div>
     <div class="infoContainer">
         <text>
             <b>
-                Machine Name:
+                Machine Name: <script>document.write(machineName)</script>
                 <br>
                 Serial No:
                 <br>
@@ -30,7 +32,7 @@
             </b>
         </text>
         <br> <br>
-     </div>
+    </div>
     <div style="overflow-x:auto;">
         <table class = "handoverTable">
             <thead>
@@ -45,33 +47,47 @@
                 </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>10/07/2021 07:30</td>
-                <td>Techie T</td>
-                <td>10/07/2021 13:30</td>
-                <td>Fred J</td>
-                <td>Treatment</td>
-                <td>Clinical with limitations</td>
-                <td>dummy values</td>
-            </tr>
-            <tr>
-                <td>10/07/2021 06:00</td>
-                <td>Rad R</td>
-                <td>10/07/2021 07:30</td>
-                <td>Techie T</td>
-                <td>run up & Daily QA</td>
-                <td>Clinically ready</td>
-                <td>dummy values</td>
-            </tr>
+                <tr>
+                    <td>10/07/2021 07:30</td>
+                    <td>Techie T</td>
+                    <td>10/07/2021 13:30</td>
+                    <td>Fred J</td>
+                    <td>Treatment</td>
+                    <td>Clinical with limitations</td>
+                    <td>dummy values</td>
+                </tr>
+                <tr>
+                    <td>10/07/2021 06:00</td>
+                    <td>Rad R</td>
+                    <td>10/07/2021 07:30</td>
+                    <td>Techie T</td>
+                    <td>run up & Daily QA</td>
+                    <td>Clinically ready</td>
+                    <td>Dummy values</td>
+                </tr>
             </tbody>
         </table>
     </div>
     <br> <br>
     <div class="BTNContainer">
-        <button type="Submit">Start New status</button>
-        <button type="Submit">End Previous status</button>
-        <button type="Submit">Logout</button>
+        <button type="Submit" id="add">Add New Status</button>
+        <button type="Submit" id="end">End Previous status</button>
+        <button type="Submit" id="logout">Logout</button>
     </div>
+
+    <script type="text/javascript">
+        document.getElementById("add").onclick = function() {
+            location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/UpdateStatus.html";
+        }
+
+        document.getElementById("end").onclick = function() {
+            location.href = "";
+        }
+
+        document.getElementById("logout").onclick = function() {
+            location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/Overview.html";
+        }
+    </script>
 
 </body>
 </html>

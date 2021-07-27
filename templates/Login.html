@@ -7,11 +7,14 @@
             -> maybe... -->
     <meta charset="UTF-8">
     <title>Login</title>
+    <script>
+        var machineName = sessionStorage.getItem("machineName");
+    </script>
 </head>
 <body>
     <form action="main.py" method="post">
         <div class="login-container">
-            <h1>LA1</h1>
+            <h1><script>document.write(machineName)</script></h1>
             <label><b>Username: </b></label>
             <br>
             <input type="text" placeholder = "Enter Username" name="uname" required>
@@ -20,8 +23,13 @@
             <br>
             <input type="Password" placeholder="Enter Password" name="psw" required>
             <h2></h2>
-            <button type="Submit">Login</button>
+            <button type="Submit" id="enter">Login</button>
         </div>
     </form>
+    <script>
+        document.getElementById("enter").onclick = function() {
+            location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/MachineStatus.html";
+        }
+    </script>
 </body>
 </html>
