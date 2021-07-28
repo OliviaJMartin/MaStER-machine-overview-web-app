@@ -2,7 +2,6 @@ body {
     margin:auto;
     background-color: #00004d;
     color: white;
-    text-align: center;
 }
 
 .infoContainer {
@@ -38,7 +37,7 @@ text{
     width: 90%;
     Height: 70%;
     border-collapse: collapse;
-    margin: auto;
+    margin:auto;
     min-width: 500px;
     font-size: 20px;
 }
@@ -65,10 +64,16 @@ text{
 }
 
 .handoverTable tbody tr:hover {
-    background-color: #f5f5f7;
+    background-color: #f5f5f5;
+}
+
+.HandoverTable tbody:first-child() {
+    background-color: #a6a6a6;
+    color; black
 }
 
 .BTNContainer {
+transform: translate(46%,0%);
     width: 50%;
     height: 100px;
     vertical-align:center;
@@ -77,7 +82,7 @@ text{
     text-align: center;
 }
 
-button {
+button[type=submit] {
     align: center;
     position:relative;
     padding: 15px 15px;
@@ -95,11 +100,12 @@ button {
     display:inline-block;
 }
 
-button:hover {
+button[type=submit]:hover {
     background-color:#a6a6a6;
 }
 
 .modal {
+    text-align: center;
     display: none;
     position: fixed;
     z-index: 1;
@@ -108,12 +114,11 @@ button:hover {
     width: 30%;
     height: 35%;
     padding: 5%;
+    transform: translate(75%, 10%);
     overflow: auto;
-    font-size: 25px;
-    text-align: center;
     background-color: #00004d;
+    font-size: 25px;
     border: 1px solid white;
-    transform: translate(75%,10%);
 }
 
 .model-content {
