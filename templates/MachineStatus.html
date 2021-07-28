@@ -87,6 +87,21 @@
     <div class="BTNContainer">
         <button type="Submit" id="add">Add New Status</button>
         <button type="Submit" id="end">End Previous status</button>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>
+                    Current session: <br>
+                    Machine - <script>document.write(machineName)</script> <br>
+                    Status - <br>
+                    Starting user - <br>
+                    starting time - <br>
+                    Would you like to end the current session?
+                </p>
+                <button type="submit" id="yes">Yes</button>
+                <button type="submit" id="No">No</button>
+            </div>
+        </div>
         <button type="Submit" id="logout">Logout</button>
     </div>
 
