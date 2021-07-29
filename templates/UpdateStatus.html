@@ -26,7 +26,7 @@
       <br> <br>
       <text>*Description:</text>
       <br>
-      <input type="text" placeholder="Enter Description" name="description" required> <!--text box to be swapped out to combo when django is added -->
+      <input type="text" placeholder="Enter Description" name="description" id="description" required> <!--text box to be swapped out to combo when django is added -->
       <br> <br>
       <text>Comments:</text>
       <textarea rows="5" id="multiLineInput"></textarea> <!-- multi-line textbox for comments -->
@@ -56,11 +56,20 @@
   <script>
     document.getElementById("submit").onclick = function() {
             location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/MachineStatus.html";
-        }
+
+            var status = document.getElementsById("status");
+            sessionStorage.setItem("status", status);
+
+            var description = document.getElementsById("description");
+            sessionStorage.setItem("status", status);
+
+            var comments = document.getElementsById("multiLineInput");
+            sessionStorage.setItem("status", status);
+    }
 
     document.getElementById("discard").onclick = function() {
             location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/UpdateStatus.html";
-        }
+    }
   </script>
 </body>
 </html>

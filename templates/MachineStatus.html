@@ -4,12 +4,27 @@
     <meta charset="UTF-8">
     <title>Machine Status</title>
     <link rel="stylesheet" type="text/css" href="../styles/machineStatusStyle.css">
-    <script>
+    <script type = "text/javascript">
         var machineName = sessionStorage.getItem("machineName");
     </script>
 </head>
 <body>
     <h1>Machine Status Page</h1>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>
+                <b>Current session: </b><br><br>
+                Machine - <script>document.write(machineName)</script> <br>
+                Status - <br>
+                Starting user - <br>
+                starting time - <br><br>
+                Would you like to end the current session?<br>
+            </p>
+            <button type="submit" id="yes">Yes</button>
+            <button type="submit" id="No">No</button>
+        </div>
+    </div>
     <div class="statusCircle"></div>
     <div class="infoContainer">
         <text>
@@ -72,6 +87,21 @@
     <div class="BTNContainer">
         <button type="Submit" id="add">Add New Status</button>
         <button type="Submit" id="end">End Previous status</button>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>
+                    Current session: <br>
+                    Machine - <script>document.write(machineName)</script> <br>
+                    Status - <br>
+                    Starting user - <br>
+                    starting time - <br>
+                    Would you like to end the current session?
+                </p>
+                <button type="submit" id="yes">Yes</button>
+                <button type="submit" id="No">No</button>
+            </div>
+        </div>
         <button type="Submit" id="logout">Logout</button>
     </div>
 
@@ -80,12 +110,34 @@
             location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/UpdateStatus.html";
         }
 
-        document.getElementById("end").onclick = function() {
-            location.href = "";
-        }
-
         document.getElementById("logout").onclick = function() {
             location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/Overview.html";
+        }
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("end");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
         }
     </script>
 

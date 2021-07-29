@@ -13,6 +13,7 @@
             Click on a machine icon to log in and update status.
         </text>
     </div>
+
     <div class="machineContainer" id="formLA1">
         <h1>LA1</h1>
         <div class="imageContainer">image</div>
@@ -26,6 +27,7 @@
             Reported by:
         </text>
     </div>
+
     <div class="machineContainer" id="formLA2">
         <h1>LA2</h1>
         <div class="imageContainer">image</div>
@@ -39,6 +41,7 @@
             Reported by:
         </text>
     </div>
+
     <div class="machineContainer" id="formLA4">
         <h1>LA4</h1>
         <div class="imageContainer">image</div>
@@ -52,19 +55,21 @@
             Reported by:
         </text>
     </div>
+
      <div class="machineContainer" id="formCT">
-        <h1>CT</h1>
+         <h1>CT</h1>
          <div class="imageContainer">image</div>
-        <br>
-        <div id="circleCT"></div>
-        <br>
-        <text>Status:
+         <br>
+         <div id="circleCT"></div>
+         <br>
+         <text>Status:
             <br>
             Last reported:
             <br>
             Reported by:
         </text>
     </div>
+
     <div class="machineContainer" id="formBrachy">
         <h1>Brachytherapy</h1>
         <div class="imageContainer">image</div>
@@ -80,27 +85,30 @@
     </div>
 
     <script>
-
         document.getElementById("formLA1").onclick = function() {
             var machineName = "LA1";
             sessionStorage.setItem("machineName", machineName);
             location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/Login.html";
         }
+
         document.getElementById("formLA2").onclick = function() {
             var machineName = "LA2";
             sessionStorage.setItem("machineName", machineName);
             location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/Login.html";
         }
+
         document.getElementById("formLA4").onclick = function() {
             var machineName = "LA4";
             sessionStorage.setItem("machineName", machineName);
             location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/Login.html";
         }
+
         document.getElementById("formCT").onclick = function() {
             var machineName = "CT";
             sessionStorage.setItem("machineName", machineName);
             location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/Login.html";
         }
+
         document.getElementById("formBrachy").onclick = function() {
             var machineName = "Brachytherapy";
             sessionStorage.setItem("machineName", machineName);
