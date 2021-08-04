@@ -1,16 +1,18 @@
 body {
     margin:auto;
-    background-color: #00004d;
+    background-color: #00004d; /*dark blue */
     color: white;
+    text-align: center;
 }
 
 .infoContainer {
-    transform: translate(5%,0%);
     width:45%;
     height: 100px;
     vertical-align:center;
     display:inline-block;
-    padding: 20px;
+
+    padding-left: 20px;
+    padding-right: 20px;
     text-align: center;
 }
 
@@ -24,7 +26,6 @@ text{
 }
 
 .statusCircle {
-    transform: translate(-5%,0%);
     width: 50px;
     height: 50px;
     margin-left: auto;
@@ -42,7 +43,7 @@ text{
 }
 
 .handoverTable thead tr { /* tr = table row*/
-    background-color: rgb(75,75,75);
+    background-color: rgb(75,75,75); /* grey */
     color:white;
     text-align:center;
     height: 50px;
@@ -54,25 +55,19 @@ text{
 }
 
 .handoverTable tbody tr {
-    border-bottom: 1px solid #a9a9a9;
-    background-color: rgb(255,255,255);
+    border-bottom: 1px solid #a9a9a9; /*grey*/
+    background-color: white;
     color: black;
     text-align: center;
     height: 35px;
-    column-rule: 4px double #ff00ff;
+    column-rule: 4px double #ff00ff; /*grey*/
 }
 
 .handoverTable tbody tr:hover {
-    background-color: #f5f5f5;
-}
-
-.HandoverTable tbody:first-child() {
-    background-color: #a6a6a6;
-    color; black
+    background-color: #a6a6a6; /* light grey */
 }
 
 .BTNContainer {
-transform: translate(46%,0%);
     width: 50%;
     height: 100px;
     vertical-align:center;
@@ -86,9 +81,8 @@ button[type=submit] {
     position:relative;
     padding: 15px 15px;
     background: white;
-    border: 1px solid rgb(0,0,0);
+    border: 1px solid black;
     cursor: pointer;
-    -webkit-border-radius: 5px;
     border-radius:5px;
     font-size: 13px;
     color: black;
