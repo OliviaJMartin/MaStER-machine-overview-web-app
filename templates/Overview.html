@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../styles/overviewStyle.css">
+    <script type="text/javascript" src="../JavaScript/connections.js"></script>
     <title>Machine Overview</title>
 </head>
 <body>
-
-    <div class="titleContainer">
+    <div class="titleContainer"> <!-- title and brief explanation of what to do -->
         <h1>Machine Overview <br></h1>
         <text>
             Click on a machine icon to log in and update status.
         </text>
     </div>
 
-    <div class="machineContainer" id="formLA1">
+    <div class="machineContainer" id="formLA1"> <!-- overview of LA1 current status -->
         <h1>LA1</h1>
-        <div class="imageContainer"><br><br><br><img src="../images/Linac.jpg" alt="Linac"></div>
+        <div class="imageContainer" onClick="login('LA1')">
+            <br><br><br>
+            <!-- ../ is how the program knows to go back a couple folders to find path. -->
+            <img src="../images/Linac.jpg" alt="Linac">
+        </div>
         <br>
-        <div id="circleLA1"></div>
+        <!-- color to be changed using if statement based on current status of machine -->
+        <div class="circle" id="circleLA1"></div>
         <br>
-        <text>Status:
+        <text>
+            Status:
             <br>
             Last reported:
             <br>
@@ -28,13 +34,17 @@
         </text>
     </div>
 
-    <div class="machineContainer" id="formLA2">
+    <div class="machineContainer" id="formLA2"> <!-- overview of LA2 current status -->
         <h1>LA2</h1>
-        <div class="imageContainer"><br><br><br><img src="../images/Linac.jpg" alt="Linac"></div>
+        <div class="imageContainer" onClick="login('LA2')">
+            <br><br><br>
+            <img src="../images/Linac.jpg" alt="Linac">
+        </div>
         <br>
-        <div id="circleLA2"></div>
+        <div class="circle" id="circleLA2"></div>
         <br>
-        <text>Status:
+        <text>
+            Status:
             <br>
             Last reported:
             <br>
@@ -42,13 +52,17 @@
         </text>
     </div>
 
-    <div class="machineContainer" id="formLA4">
+    <div class="machineContainer" id="formLA4"> <!-- overview of LA4 current status -->
         <h1>LA4</h1>
-        <div class="imageContainer"><br><br><br><img src="../images/Linac.jpg" alt="Linac"></div>
+        <div class="imageContainer" onClick="login('LA4')">
+            <br><br><br>
+            <img src="../images/Linac.jpg" alt="Linac">
+        </div>
         <br>
-        <div id="circleLA4"></div>
+        <div class="circle" id="circleLA4"></div>
         <br>
-        <text>Status:
+        <text>
+            Status:
             <br>
             Last reported:
             <br>
@@ -56,13 +70,17 @@
         </text>
     </div>
 
-     <div class="machineContainer" id="formCT">
+     <div class="machineContainer" id="formCT"> <!-- overview of CT current status -->
          <h1>CT</h1>
-         <div class="imageContainer"><br><br><br><br><br><img src="../images/CT.jpg" alt="CT"></div>
+         <div class="imageContainer" onClick="login('CT')">
+             <br><br><br><br><br>
+             <img src="../images/CT.jpg" alt="CT">
+         </div>
          <br>
-         <div id="circleCT"></div>
+         <div class="circle" id="circleCT"></div>
          <br>
-         <text>Status:
+         <text>
+            Status:
             <br>
             Last reported:
             <br>
@@ -70,50 +88,22 @@
         </text>
     </div>
 
-    <div class="machineContainer" id="formBrachy">
+    <div class="machineContainer" id="formBrachy"> <!-- overview of Brachytherapy current status -->
         <h1>Brachytherapy</h1>
-        <div class="imageContainer"><br><br><img src="../images/brachy.jpg" alt="Brachy"></div>
+        <div class="imageContainer" onClick="login('Brachytherapy')">
+            <br><br>
+            <img src="../images/brachy.jpg" alt="Brachy">
+        </div>
         <br>
-        <div id="circleBrachy"></div>
+        <div class="circle" id="circleBrachy"></div>
         <br>
-        <text>Status:
+        <text>
+            Status:
             <br>
             Last reported:
             <br>
             Reported by:
         </text>
     </div>
-
-    <script>
-        document.getElementById("formLA1").onclick = function() {
-            var machineName = "LA1";
-            sessionStorage.setItem("machineName", machineName);
-            location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/Login.html";
-        }
-
-        document.getElementById("formLA2").onclick = function() {
-            var machineName = "LA2";
-            sessionStorage.setItem("machineName", machineName);
-            location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/Login.html";
-        }
-
-        document.getElementById("formLA4").onclick = function() {
-            var machineName = "LA4";
-            sessionStorage.setItem("machineName", machineName);
-            location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/Login.html";
-        }
-
-        document.getElementById("formCT").onclick = function() {
-            var machineName = "CT";
-            sessionStorage.setItem("machineName", machineName);
-            location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/Login.html";
-        }
-
-        document.getElementById("formBrachy").onclick = function() {
-            var machineName = "Brachytherapy";
-            sessionStorage.setItem("machineName", machineName);
-            location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/Login.html";
-        }
-    </script>
 </body>
 </html>

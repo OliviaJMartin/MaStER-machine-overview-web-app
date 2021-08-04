@@ -2,19 +2,14 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/loginStyle.css">
-
-    <!--  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            -> maybe... -->
     <meta charset="UTF-8">
     <title>Login</title>
-    <script>
-        var machineName = sessionStorage.getItem("machineName");
-    </script>
+    <script type="text/javascript" src="../JavaScript/connections.js"></script>
 </head>
 <body>
     <form method="POST"> <!-- POST used due to sensitive data -->
         <div class="login-container">
-            <h1><script>document.write(machineName)</script></h1>
+            <h1> <script>outputMachine()</script> </h1> <!-- output the name of machine chosen -->
             <label><b>Username: </b></label>
             <br>
             <input type="text" placeholder = "Enter Username" name="uname" required>
@@ -23,13 +18,8 @@
             <br>
             <input type="Password" placeholder="Enter Password" name="psw" required>
             <h2></h2>
-            <button type="Submit" id="enter">Login</button>
+            <button type="Submit" id="enter" onClick="machineStatus()">Login</button>
         </div>
     </form>
-    <script>
-        document.getElementById("enter").onclick = function() {
-            location.href = "http://localhost:63342/MaStER-machine-overview-web-app2/templates/MachineStatus.html";
-        }
-    </script>
 </body>
 </html>
