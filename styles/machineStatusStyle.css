@@ -1,6 +1,6 @@
 body {
     margin:auto;
-    background-color: #00004d; /*dark blue */
+    background-color: #00004d; /* dark blue */
     color: white;
     text-align: center;
 }
@@ -9,8 +9,7 @@ body {
     width:45%;
     height: 100px;
     vertical-align:central;
-    display:inline-block;
-
+    display:inline-block; /* display all containers in a row */
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
@@ -21,9 +20,7 @@ h1{
     font-size: 50px;
 }
 
-text{
-    font-size: 20px;
-}
+text{font-size: 20px;}
 
 .statusCircle {
     width: 50px;
@@ -31,8 +28,9 @@ text{
     margin-left: auto;
     margin-right: auto;
     background: green;
-    border-radius: 50%;
+    border-radius: 50%; /* making it a circle */
 }
+
 .handoverTable {
     width: 90%;
     Height: 70%;
@@ -49,10 +47,9 @@ text{
     height: 50px;
 }
 
-.handoverTable th, /* td = table header*/
-.table td { /* td = table data*/
-    padding: 12px 15px;
-}
+/* th = table header, td = table data*/
+.handoverTable th,
+.table td {padding: 12px 15px;}
 
 .handoverTable tbody tr {
     border-bottom: 1px solid #a9a9a9; /*grey*/
@@ -63,9 +60,7 @@ text{
     column-rule: 4px double #ff00ff; /*grey*/
 }
 
-.handoverTable tbody tr:hover {
-    background-color: #a6a6a6; /* light grey */
-}
+.handoverTable tbody tr:hover {background-color: #a6a6a6;} /* light grey */
 
 .BTNContainer {
     width: 50%;
@@ -78,25 +73,23 @@ text{
 
 button[type=submit] {
     align: center;
-    position:relative;
+    position: relative;
     padding: 15px 15px;
     background: white;
     border: 1px solid black;
     cursor: pointer;
-    border-radius:5px;
+    border-radius: 5px;
     font-size: 13px;
     color: black;
     width: 30%;
     min-width: 250px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto; /* centering */
+    margin-right: auto; /* centering */
     font-size: 20px;
-    display:inline-block;
+    display: inline-block;
 }
 
-button[type=submit]:hover {
-    background-color:#a6a6a6;
-}
+button[type=submit]:hover {background-color:#a6a6a6;} /* light grey */
 
 .modal {
     text-align: center;
@@ -109,22 +102,21 @@ button[type=submit]:hover {
     height: 35%;
     padding: 5%;
     transform: translate(75%, 10%);
-    overflow: auto;
-    background-color: #00004d;
+    overflow: auto; /* adding scroll if window becomes too small */
+    background-color: #00004d; /* dark blue */
     font-size: 25px;
     border: 1px solid white;
 }
 
 .model-content {
-    background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid white;
     width: 80%;
 }
 
 .close{
-    color: #aaa;
+    color: #aaa; /* grey */
     float: right;
     font-size: 28px;
     font-weight: bold;
