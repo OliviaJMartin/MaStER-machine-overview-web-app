@@ -5,6 +5,7 @@
     <title>Machine Status</title>
     <link rel="stylesheet" type="text/css" href="../styles/machineStatusStyle.css">
     <script type="text/javascript" src="../JavaScript/connections.js"></script>
+    <script type="text/javascript" src="../JavaScript/data.js"></script>
 
 </head>
 <body>
@@ -19,11 +20,11 @@
                 </b><br><br>
                 Machine - <script>outputMachine()</script>
                 <br>
-                Status -
+                Status - <script>output('machineStatus')</script>
                 <br>
-                Starting user -
+                Starting user - <script>output('machineUser')</script>
                 <br>
-                starting time -
+                starting time - <script>output('machineTime')</script>
                 <br><br>
                 Would you like to end the current session?
                 <br>
@@ -37,7 +38,7 @@
     <!-- main page -->
     <!-- status circle to change based on status -->
     <div class="statusCircle"></div>
-
+       <br><br>
     <div class="infoContainer">
         <text>
             <b>
@@ -53,10 +54,9 @@
     <div class="infoContainer">
         <text>
             <b>
+                Current Status: <script>output('machineStatus')</script>
                 <br>
-                Current Status:
-                <br>
-                Current Owner:
+                Current Owner: <script>output('machineUser')</script>
             </b>
         </text>
         <br> <br>
@@ -99,13 +99,16 @@
             </tbody>
         </table>
     </div>
+
     <br> <br>
+
     <div class="BTNContainer">
         <!-- buttons when clicked move to respective pages using javascript functions from connections.js -->
         <button type="Submit" id="add" onClick="updateStatus()">Add New Status</button>
         <button type="Submit" id="end">End Previous status</button>
         <button type="Submit" id="logout" onClick="overview()">Logout</button>
     </div>
+
 </body>
 <footer>
         <script type="text/javascript" src="../JavaScript/modal.js"></script>
