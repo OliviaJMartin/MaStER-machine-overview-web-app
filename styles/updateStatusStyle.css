@@ -95,15 +95,18 @@ input{
     border-radius:4px;
     box-sizing: border-box;
     resize: vertical;
+    font-size: 14px;
 }
 
 textarea {
   width: 80%;
   height: 150px;
-  padding: 12px 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;
   resize: none;
+  padding: 5px;
+  font: 14px Arial, sans-serif;
+  border-radius:4px;
 }
 
 #circleClinical {
@@ -167,4 +170,5 @@ select {
     border-radius:4px;
     box-sizing: border-box;
     resize: vertical;
+    font-size: 14px;
 }
