@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Updating Status</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'updateStatusStyle.css' %}">
+  <script type="text/javascript" src="../JavaScript/connections.js"></script>
+</head>
+
+<body>
+  <h1>Status reporting: <script>outputMachine()</script></h1>
+  <br><br>
+  <div class="containContainers">
+    <div class="inputContainer">
+      <text> <b> Reporting As: </b> </text> <!-- to take values from database -->
+      <br><br>
+      <text>Status:</text>
+      <br>
+      <!-- combo box for machine status options -->
+      <select name="status" id="status">
+        <option value="" selected="selected">Select status</option>
+        <option value="" >Fully Serviceable (Clinical)</option>
+        <option value="" >Clinical with some limitations</option>
+        <option value="" >On Service/PMI</option>
+        <option value="" >Unserviceable (not clinical)</option>
+      </select>
+      <br> <br>
+      <text>Description:</text>
+      <br>
+      <input type="text" placeholder="Enter Description" name="description" id="description" required>
+      <br> <br>
+      <text>Comments:</text>
+      <textarea rows="5" id="multiLineInput"></textarea> <!-- multi-line textbox for comments -->
+      <br><br><br><br>
+      <!-- buttons to move to respective pages using connections.js -->
+      <button type="submit" id="submit" onClick="machineStatus()">Submit</button>
+      <br><br>
+      <button type="submit" id="discard" onClick="updateStatus()">Discard</button>
+      <br>
+    </div>
+
+    <!--static container to show options for status combo box -->
+    <div class="keyContainer">
+      <text> <b> Status Key: </b></text>
+      <br> <br>
+      <div id="circleClinical"></div>
+      <text>Fully Serviceable (Clinical)</text>
+      <br> <br> <br>
+      <div id="circleLimitations"></div>
+      <text>Clinical with some limitations</text>
+      <br> <br><br>
+      <div id="circleService"></div>
+      <text>On Service / PMI</text>
+      <br> <br> <br>
+      <div id="circleUnserviceable"></div>
+      <text>Unserviceable (not clinical - i.e. ongoing fault)</text>
+    </div>
+  </div>
+</body>
+<footer>
+  <script type="text/javascript" src="../JavaScript/data.js"></script>
+</footer>
+</html>
