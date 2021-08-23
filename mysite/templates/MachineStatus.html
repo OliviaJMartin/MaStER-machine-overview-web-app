@@ -19,13 +19,13 @@
             <p>
                 <b>Current session:
                 </b><br><br>
-                Machine - <script>outputMachine()</script>
+                Machine -
                 <br>
-                Status - <script>output('machineStatus')</script>
+                Status -
                 <br>
-                Starting user - <script>output('machineUser')</script>
+                Starting user -
                 <br>
-                starting time - <script>output('machineTime')</script>
+                starting time -
                 <br><br>
                 Would you like to end the current session?
                 <br>
@@ -107,7 +107,7 @@
         <!-- buttons when clicked move to respective pages using javascript functions from connections.js -->
         <a href="{% url 'updateStatus' %}"><button type="Submit" id="add">Add New Status</button></a>
         <button type="Submit" id="end">End Previous status</button>
-        <a href="{% url 'login' %}"><button type="Submit" id="logout">Logout</button></a>
+        <a href="{% url 'overview' %}"><button type="Submit" id="logout">Logout</button></a>
     </div>
 
 </body>
@@ -129,6 +129,14 @@
 
             // When the user clicks on <span> (x), close the modal
             span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            yes.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            no.onclick = function() {
                 modal.style.display = "none";
             }
 
