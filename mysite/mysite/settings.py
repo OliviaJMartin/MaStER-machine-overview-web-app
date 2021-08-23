@@ -52,7 +52,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'mysite/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,16 +76,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-#DATABASES = {
- #   'default': {
-  #      'ENGINE': 'mssql',
-   #     'NAME': 'IT034122\SQLEXPRESS\electronicHandover',
-    #    'USER': 'OlMartin',
-     #   'PASSWORD': 'Medina/Cleveland3',
-      #  'HOST': 'c:\Program Files\Mircosoft SQL Server\MSSQL14.SQLExpress\MSSQL'  # had to turn around slash to be valid
-#    }
-#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -124,7 +114,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'mysite/static')
+    os.path.join(BASE_DIR, 'static')
 ]
 
 # Default primary key field type

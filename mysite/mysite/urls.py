@@ -18,8 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Overview.urls')),  # homepage
-    path('login/', include('Login.urls')),
-    path('machineStatus/', include('MachineStatus.urls')),
-    path('updateStatus/', include('UpdateStatus.urls'))
+    path('', include('myapp.urls')),  # urls to html pages
 ]

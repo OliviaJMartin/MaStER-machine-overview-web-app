@@ -8,7 +8,7 @@
     <script type="text/javascript" src="../JavaScript/connections.js"></script>
 </head>
 <body>
-    <form method="POST"> <!-- POST used due to sensitive data -->
+    <!-- <form method="POST"> --> <!-- POST used due to sensitive data -->
         <div class="login-container">
             <h1> <script>outputMachine()</script> </h1> <!-- output the name of machine chosen -->
             <label><b>Username: </b></label>
@@ -19,8 +19,8 @@
             <br>
             <input type="Password" placeholder="Enter Password" name="psw" required>
             <h2></h2>
-            <button type="Submit" id="enter" onClick="machineStatus()">Login</button>
+            <a href="{% url 'machineStatus' %}"><button type="Submit" id="enter">Login</button></a>
         </div>
-    </form>
+    <!-- </form> -->
 </body>
 </html>

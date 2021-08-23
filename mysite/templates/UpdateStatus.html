@@ -34,9 +34,9 @@
       <textarea rows="5" id="multiLineInput"></textarea> <!-- multi-line textbox for comments -->
       <br><br><br><br>
       <!-- buttons to move to respective pages using connections.js -->
-      <button type="submit" id="submit" onClick="machineStatus()">Submit</button>
+      <a href="{% url 'machineStatus' %}"><button type="submit" id="submit">Submit</button></a>
       <br><br>
-      <button type="submit" id="discard" onClick="updateStatus()">Discard</button>
+      <a href="{% url 'updateStatus' %}"><button type="submit" id="discard">Discard</button></a>
       <br>
     </div>
 
@@ -59,6 +59,6 @@
   </div>
 </body>
 <footer>
-  <script type="text/javascript" src="../JavaScript/data.js"></script>
+  <script type="text/javascript"></script>
 </footer>
 </html>
