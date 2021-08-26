@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <title>Machine Status</title>
     <link rel="stylesheet" type="text/css" href="{% static 'machineStatusStyle.css' %}">
-    <script type="text/javascript" src="../JavaScript/connections.js"></script>
-    <script type="text/javascript" src="../JavaScript/data.js"></script>
-
 </head>
 <body>
     <h1>Machine Status Page</h1>
@@ -15,7 +12,7 @@
     <!-- pop up box for ending current status -->
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close">X</span>
             <p>
                 <b>Current session:
                 </b><br><br>
@@ -43,7 +40,7 @@
     <div class="infoContainer">
         <text>
             <b>
-                Machine Name: <script>outputMachine()</script> <!-- output name of machine chosen -->
+                Machine Name: <!-- output name of machine chosen -->
                 <br>
                 Serial No:
                 <br>
@@ -55,9 +52,9 @@
     <div class="infoContainer">
         <text>
             <b>
-                Current Status: <script>output('machineStatus')</script>
+                Current Status:
                 <br>
-                Current Owner: <script>output('machineUser')</script>
+                Current Owner:
             </b>
         </text>
         <br> <br>
@@ -104,7 +101,7 @@
     <br> <br>
 
     <div class="BTNContainer">
-        <!-- buttons when clicked move to respective pages using javascript functions from connections.js -->
+        <!-- buttons when clicked move to respective pages using django urls from myapp urls -->
         <a href="{% url 'updateStatus' %}"><button type="Submit" id="add">Add New Status</button></a>
         <button type="Submit" id="end">End Previous status</button>
         <a href="{% url 'overview' %}"><button type="Submit" id="logout">Logout</button></a>
