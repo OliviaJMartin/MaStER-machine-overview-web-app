@@ -12,7 +12,9 @@
   <br><br>
   <div class="containContainers">
     <div class="inputContainer">
-      <text> <b> Reporting As: </b> </text> <!-- to take values from database -->
+      <text> <b> Reporting As: <script> document.write(sessionStorage.getItem("userName"))  </script> </b> </text> <!-- to take values from database -->
+      <br>
+      <text> <b> Reporting for: <script>document.write(sessionStorage.getItem("machineName"))</script></b> </text>
       <br><br>
       <text>Status:</text>
       <br>
@@ -57,4 +59,17 @@
     </div>
   </div>
 </body>
+<footer>
+  <script>
+    function set_user_values() {
+      var status = getElementById("status")
+      var description = getElementById("description")
+      var comments = getElementById("multiLineInput")
+
+      sessionStorage.setItem("status", status);
+      sessionStorage.setItem("description", description);
+      sessionStorage.setItem("comments", comments);
+    }
+  </script>
+</footer>
 </html>

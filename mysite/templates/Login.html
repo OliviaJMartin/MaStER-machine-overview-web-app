@@ -20,18 +20,23 @@
             <br>
             {{ form.password }}
             <h2></h2>
-            <a href="{% url 'machineStatus' %}"><button type="Submit" id="enter">Login</button></a>
+            <a href="{% url 'machineStatus' %}" onclick="return set_user();"><button type="Submit" id="enter">Login</button></a>
         </div>
     </form>
 </body>
 <footer>
-    <script>
+    <script type="text/javascript">
         document.getElementById("id_username").classList.add("form-control");
         document.getElementById("id_password").classList.add("form-control");
         document.getElementById("id_username").placeholder = "Username";
         document.getElementById("id_password").placeholder = "Password";
         document.getElementById("id_username").type = "text";
         document.getElementById("id_password").type = "password";
+
+        function set_user() {
+            username = document.getElementById("form.username");
+            sessionStorage.setItem("userName", username);
+        }
     </script>
 </footer>
 </html>
