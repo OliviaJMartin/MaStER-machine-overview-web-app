@@ -15,8 +15,8 @@
         </text>
     </div>
 
-    <a href="{% url 'login' %}">
-        <div class="machineContainer" id="formLA1"> <!-- overview of LA1 current status -->
+    <a href="{% url 'login' %}" onclick="return set_machine_choice('LA1');">
+        <div class="machineContainer"> <!-- overview of LA1 current status -->
             <h1>LA1</h1>
             <div class="imageContainer">
                 <br><br><br>
@@ -36,7 +36,7 @@
         </div>
     </a>
 
-    <a href="{% url 'login' %}">
+     <a href="{% url 'login' %}" onclick="return set_machine_choice('LA2');">
         <div class="machineContainer" id="formLA2"> <!-- overview of LA2 current status -->
             <h1>LA2</h1>
             <div class="imageContainer" >
@@ -56,7 +56,7 @@
         </div>
     </a>
 
-    <a href="{% url 'login' %}">
+     <a href="{% url 'login' %}" onclick="return set_machine_choice('LA4');">
         <div class="machineContainer" id="formLA4"> <!-- overview of LA4 current status -->
             <h1>LA4</h1>
             <div class="imageContainer">
@@ -76,7 +76,7 @@
         </div>
     </a>
 
-    <a href="{% url 'login' %}">
+     <a href="{% url 'login' %}" onclick="return set_machine_choice('CT');">
          <div class="machineContainer" id="formCT"> <!-- overview of CT current status -->
              <h1>CT</h1>
              <div class="imageContainer">
@@ -96,7 +96,7 @@
         </div>
     </a>
 
-    <a href="{% url 'login' %}">
+     <a href="{% url 'login' %}" onclick="return set_machine_choice('Brachytherapy');">
         <div class="machineContainer" id="formBrachy"> <!-- overview of Brachytherapy current status -->
             <h1>Brachytherapy</h1>
             <div class="imageContainer">
@@ -116,4 +116,11 @@
         </div>
     </a>
 </body>
+<footer>
+    <script type="text/javascript">
+        function set_machine_choice(machineName) {
+            sessionStorage.setItem("machineName", machineName);
+        }
+    </script>
+</footer>
 </html>

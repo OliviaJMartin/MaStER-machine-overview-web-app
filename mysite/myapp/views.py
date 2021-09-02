@@ -18,6 +18,7 @@ class loggingin(View):
 
     def get(self, request):
         form = AuthenticationForm()
+        machine = request.session.get('machine', 'LA1')
         return render(request, self.template, {'form': form})
 
     def post(self, request):
