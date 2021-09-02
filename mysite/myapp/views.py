@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views import View
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -38,6 +38,14 @@ class status(LoginRequiredMixin, View):
 
     def get(self, request):
         return render(request, self.template)
+
+
+class loggingout(View):
+    template = 'Overview.html'
+
+    def get(self, request):
+        logout(request)
+        return HttpResponseRedirect('/')
 
 
 class update(View):
