@@ -1,17 +1,47 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.views import View
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-def overview(request):
-    return render(request, "Overview.html")
+class overview(View):
+    template = 'Overview.html'
+
+    def get(self, request):
+        return render(request, self.template)
 
 
-def login(request):
-    return render(request, "Login.html")
+class loggingin(View):
+    template = 'Login.html'
+
+    def get(self, request):
+        form = AuthenticationForm()
+        return render(request, self.template, {'form': form})
+
+    def post(self, request):
+        form = AuthenticationForm(request.POST)
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect('/machinestatus/')
+        else:
+            return render(request, self.template, {'form': form})
 
 
-def status(request):
-    return render(request, "MachineStatus.html")
+class status(LoginRequiredMixin, View):
+    template = 'MachineStatus.html'
+    login_url = '/login/'
+
+    def get(self, request):
+        return render(request, self.template)
 
 
-def update(request):
-    return render(request, "UpdateStatus.html")
+class update(View):
+    template = 'UpdateStatus.html'
+
+    def get(self, request):
+        return render(request, self.template)

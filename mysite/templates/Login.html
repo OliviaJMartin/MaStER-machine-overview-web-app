@@ -2,24 +2,37 @@
 {% load static %}
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'loginStyle.css' %}">
+
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'loginStyle.css' %}">
 </head>
 <body>
-    <!-- <form method="POST"> --> <!-- POST used due to sensitive data -->
+    <form method="POST">  <!-- POST used due to sensitive data -->
+        {% csrf_token %}
         <div class="login-container">
             <h1> </h1> <!-- output the name of machine chosen -->
             <label><b>Username: </b></label>
             <br>
-            <input type="text" placeholder = "Enter Username" name="uname" required>
+            {{ form.username }}
             <br>
             <label><b>Password: </b></label>
             <br>
-            <input type="Password" placeholder="Enter Password" name="psw" required>
+            {{ form.password }}
             <h2></h2>
             <a href="{% url 'machineStatus' %}"><button type="Submit" id="enter">Login</button></a>
         </div>
-    <!-- </form> -->
+    </form>
 </body>
+<footer>
+    <script>
+        document.getElementById("id_username").classList.add("form-control");
+        document.getElementById("id_password").classList.add("form-control");
+        document.getElementById("id_username").placeholder = "Username";
+        document.getElementById("id_password").placeholder = "Password";
+        document.getElementById("id_username").type = "text";
+        document.getElementById("id_password").type = "password";
+
+    </script>
+</footer>
 </html>
