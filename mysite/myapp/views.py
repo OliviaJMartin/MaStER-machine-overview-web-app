@@ -6,11 +6,36 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
+
 class overview(View):
     template = 'Overview.html'
 
     def get(self, request):
-        return render(request, self.template)
+        # la1_status = models.Machinestatus.status.all()
+        #
+        # for i in la1_status:
+        #     # request.session['LA1_status'] = i.Status
+        #     print(i.Status)
+        return render(request, self.template,
+                      context=
+                          {
+                              'LA1_status': 'On Service',
+                              'LA2_status': 'Fully Serviceable',
+                              'LA4_status': 'Clinical With Limitations',
+                              'CT_status': 'Unserviceable',
+                              'Brachy_status': 'Fully Serviceable',
+                              'LA1_user': 'Testing',
+                              'LA2_user': 'Checking',
+                              'LA4_user': 'Checking',
+                              'CT_user': 'Testing',
+                              'Brachy_user': 'OlMartin',
+                              'LA1_time': '08:00',
+                              'LA2_time': '09:00',
+                              'LA4_time': '10:00',
+                              'CT_time': '11:00',
+                              'Brachy_time': '12:00'
+                          },
+                      )
 
 
 class loggingin(View):
@@ -18,7 +43,6 @@ class loggingin(View):
 
     def get(self, request):
         form = AuthenticationForm()
-        machine = request.session.get('machine', 'LA1')
         return render(request, self.template, {'form': form})
 
     def post(self, request):

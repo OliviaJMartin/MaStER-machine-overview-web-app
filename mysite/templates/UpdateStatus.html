@@ -18,29 +18,31 @@
       <br><br>
       <text>Status:</text>
       <br>
-      <!-- combo box for machine status options -->
-      <select name="status" id="status">
-        <option value="" selected="selected">Select status</option>
-        <option value="" >Fully Serviceable (Clinical)</option>
-        <option value="" >Clinical with some limitations</option>
-        <option value="" >On Service/PMI</option>
-        <option value="" >Unserviceable (not clinical)</option>
-      </select>
-      <br> <br>
-      <text>Description:</text>
-      <br>
-      <input type="text" placeholder="Enter Description" name="description" id="description" required>
-      <br> <br>
-      <text>Comments:</text>
-      <textarea rows="5" id="multiLineInput"></textarea> <!-- multi-line textbox for comments -->
-      <br><br><br><br>
-      <!-- buttons to move to respective pages using connections.js -->
-      <a href="{% url 'machineStatus' %}"><button type="submit" id="submit">Submit</button></a>
-      <br><br>
-      <a href="{% url 'updateStatus' %}"><button type="submit" id="discard">Discard</button></a>
-      <br>
-    </div>
 
+        <!-- combo box for machine status options -->
+        <select name="status" id="status">
+          <option value="" selected="selected">Select status</option>
+          <option value="" >Fully Serviceable (Clinical)</option>
+          <option value="" >Clinical with some limitations</option>
+          <option value="" >On Service/PMI</option>
+          <option value="" >Unserviceable (not clinical)</option>
+        </select>
+        <br> <br>
+        <text>Description:</text>
+        <br>
+        <input type="text" placeholder="Enter Description" name="description" id="description">
+        <br> <br>
+        <text>Comments:</text>
+        <textarea rows="5" id="multiLineInput"></textarea> <!-- multi-line textbox for comments -->
+        <br><br><br><br>
+        <!-- buttons to move to respective pages using connections.js -->
+        <a href="{% url 'machineStatus' %}"><button type="submit" id="submit">Submit</button></a>
+        <br><br>
+        <a href="{% url 'updateStatus' %}"><button type="submit" id="discard">Discard</button></a>
+        <br>
+
+
+    </div>
     <!--static container to show options for status combo box -->
     <div class="keyContainer">
       <text> <b> Status Key: </b></text>
