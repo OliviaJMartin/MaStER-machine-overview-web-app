@@ -16,11 +16,11 @@
             <p>
                 <b>Current session:
                 </b><br><br>
-                Machine -
+                Machine - <script>document.write(sessionStorage.getItem("machineName"))</script>
                 <br>
-                Status -
+                Status - <script>document.write(sessionStorage.getItem("status"))</script>
                 <br>
-                Starting user -
+                Starting user - <script>document.write(sessionStorage.getItem("userName"))</script>
                 <br>
                 starting time -
                 <br><br>
@@ -40,7 +40,7 @@
     <div class="infoContainer">
         <text>
             <b>
-                Machine Name: <!-- output name of machine chosen -->
+                Machine Name: <script>document.write(sessionStorage.getItem("machineName"))</script>
                 <br>
                 Serial No:
                 <br>
@@ -104,7 +104,7 @@
         <!-- buttons when clicked move to respective pages using django urls from myapp urls -->
         <a href="{% url 'updateStatus' %}"><button type="Submit" id="add">Add New Status</button></a>
         <button type="Submit" id="end">End Previous status</button>
-        <a href="{% url 'overview' %}"><button type="Submit" id="logout">Logout</button></a>
+        <a href="{% url 'logout' %}"><button type="Submit" id="logout">Logout</button></a>
     </div>
 
 </body>

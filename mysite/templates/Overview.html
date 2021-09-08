@@ -4,6 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'overviewStyle.css' %}">
+    <script>
+        circle_colour("fully serviceable", "circleLA1")
+        circle_colour("fully serviceable", "circleLA2")
+        circle_colour("Clinical with Limitations", "circleLA4")
+        circle_colour("Unserviceable", "circleCT")
+        circle_colour("On Service/PMI", "circleBrachy")
+</script>
     <title>Machine Overview</title>
 </head>
 
@@ -15,8 +22,8 @@
         </text>
     </div>
 
-    <a href="{% url 'login' %}">
-        <div class="machineContainer" id="formLA1"> <!-- overview of LA1 current status -->
+    <a href="{% url 'login' %}" onclick="return set_machine_choice('LA1');">
+        <div class="machineContainer"> <!-- overview of LA1 current status -->
             <h1>LA1</h1>
             <div class="imageContainer">
                 <br><br><br>
@@ -27,16 +34,16 @@
             <div class="circle" id="circleLA1"></div>
             <br>
             <text>
-                Status: <script>output("machineStatus")</script>
+                Status: {{LA1_status}}
                 <br>
-                Last reported: <script>output("machineTime")</script>
+                Last reported: {{LA1_time}}
                 <br>
-                Reported by: <script>output("machineUser")</script>
+                Reported by: {{LA1_user}}
             </text>
         </div>
     </a>
 
-    <a href="{% url 'login' %}">
+     <a href="{% url 'login' %}" onclick="return set_machine_choice('LA2');">
         <div class="machineContainer" id="formLA2"> <!-- overview of LA2 current status -->
             <h1>LA2</h1>
             <div class="imageContainer" >
@@ -47,16 +54,16 @@
             <div class="circle" id="circleLA2"></div>
             <br>
             <text>
-                Status: <script>output("machineStatus")</script>
+                Status: {{LA2_status}}
                 <br>
-                Last reported: <script>output("machineTime")</script>
+                Last reported: {{LA2_time}}
                 <br>
-                Reported by: <script>output("machineUser")</script>
+                Reported by: {{LA2_user}}
             </text>
         </div>
     </a>
 
-    <a href="{% url 'login' %}">
+     <a href="{% url 'login' %}" onclick="return set_machine_choice('LA4');">
         <div class="machineContainer" id="formLA4"> <!-- overview of LA4 current status -->
             <h1>LA4</h1>
             <div class="imageContainer">
@@ -67,16 +74,16 @@
             <div class="circle" id="circleLA4"></div>
             <br>
             <text>
-                Status: <script>output("machineStatus")</script>
+                Status: {{LA4_status}}
                 <br>
-                Last reported: <script>output("machineTime")</script>
+                Last reported: {{LA4_time}}
                 <br>
-                Reported by: <script>output("machineUser")</script>
+                Reported by: {{LA4_user}}
             </text>
         </div>
     </a>
 
-    <a href="{% url 'login' %}">
+     <a href="{% url 'login' %}" onclick="return set_machine_choice('CT');">
          <div class="machineContainer" id="formCT"> <!-- overview of CT current status -->
              <h1>CT</h1>
              <div class="imageContainer">
@@ -84,19 +91,22 @@
                  <img src="{% static 'Images/CT.jpg' %}" alt="CT">
              </div>
              <br>
-             <div class="circle" id="circleCT"></div>
+
+             <div class="circle" id="circleCT" style="background-color: orange"></script></div>
+
+
              <br>
              <text>
-                Status: <script>output("machineStatus")</script>
+                Status: {{CT_status}}
                 <br>
-                Last reported: <script>output("machineTime")</script>
+                Last reported: {{CT_time}}
                 <br>
-                Reported by: <script>output("machineUser")</script>
+                Reported by: {{CT_user}}
             </text>
         </div>
     </a>
 
-    <a href="{% url 'login' %}">
+     <a href="{% url 'login' %}" onclick="return set_machine_choice('Brachytherapy');">
         <div class="machineContainer" id="formBrachy"> <!-- overview of Brachytherapy current status -->
             <h1>Brachytherapy</h1>
             <div class="imageContainer">
@@ -107,13 +117,39 @@
             <div class="circle" id="circleBrachy"></div>
             <br>
             <text>
-                Status: <script>output("machineStatus")</script>
+                Status: {{Brachy_status}}
                 <br>
-                Last reported: <script>output("machineTime")</script>
+                Last reported: {{Brachy_time}}
                 <br>
-                Reported by: <script>output("machineTime")</script>
+                Reported by: {{Brachy_user}}
             </text>
         </div>
     </a>
 </body>
+<footer>
+    <script type="text/javascript">
+
+
+        function set_machine_choice(machineName) {
+            sessionStorage.setItem("machineName", machineName);
+        }
+
+        function status(){
+            var data = JSON.parse(""{{data|escapejs}}");
+        }
+
+        function circle_colour(status) {
+
+            if (status == "fully serviceable"){
+                return('background-color: green')
+            } else if (status == "Clinical with Limitations") {
+                return('background-color: orange')
+            } else if (status == "On Service/PMI"){
+                return('background-color: blue')
+            } else {
+                return('background-color: red')
+            }
+        }
+    </script>
+</footer>
 </html>
