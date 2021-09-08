@@ -4,6 +4,7 @@ from django.views import View
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
+# from .models import *
 
 
 class overview(View):
@@ -64,15 +65,18 @@ class loggingin(View):
 class status(LoginRequiredMixin, View):
     template = 'MachineStatus.html'
     login_url = '/login/'
+    Machine_Name = 'LA4'
+    # database_status = MachineStatus.objects.filter(machineid=Machine_Name)
 
     def get(self, request):
         return render(request, self.template, context={
-                'Machine_Name': 'LA4',
+                'Machine_Name': self.Machine_Name,
                 'Serial_No': '2459',
                 'SW_Version': 'TB v2.5',
                 'Machine_Status': 'Clinical With Limitations',
                 'Current_Owner': 'Olivia Martin',
-                'Start_Time': ''
+                'Start_Time': '',
+                'Database_Status': self.database_status,
             },)
 
 
@@ -92,7 +96,3 @@ class update(View):
                 'Machine_Name': 'LA4',
                 'User': 'OlMartin',
             },)
-
-
-class recentStatus(View):
-    template = 'x'
