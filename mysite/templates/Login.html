@@ -11,7 +11,7 @@
     <form method="POST">  <!-- POST used due to sensitive data -->
         {% csrf_token %}
         <div class="login-container">
-            <h1><script>document.write(sessionStorage.getItem("machineName"))</script></h1> <!-- output the name of machine chosen -->
+            <h1>{{Machine_Name}}</h1> <!-- output the name of machine chosen -->
             <label><b>Username: </b></label>
             <br>
             {{ form.username }}

@@ -12,9 +12,9 @@
   <br><br>
   <div class="containContainers">
     <div class="inputContainer">
-      <text> <b> Reporting As: <script> document.write(sessionStorage.getItem("userName"))  </script> </b> </text> <!-- to take values from database -->
+      <text> <b> Reporting As: {{ User }}</b> </text> <!-- to take values from database -->
       <br>
-      <text> <b> Reporting for: <script>document.write(sessionStorage.getItem("machineName"))</script></b> </text>
+      <text> <b> Reporting for: {{ Machine_Name }}</b> </text>
       <br><br>
       <text>Status:</text>
       <br>

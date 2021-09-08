@@ -16,13 +16,13 @@
             <p>
                 <b>Current session:
                 </b><br><br>
-                Machine - <script>document.write(sessionStorage.getItem("machineName"))</script>
+                Machine - {{Machine_Name}}
                 <br>
-                Status - <script>document.write(sessionStorage.getItem("status"))</script>
+                Status - {{Machine_Status}}
                 <br>
-                Starting user - <script>document.write(sessionStorage.getItem("userName"))</script>
+                Starting user - {{Current_Owner}}
                 <br>
-                starting time -
+                starting time - {{Start_Time}}
                 <br><br>
                 Would you like to end the current session?
                 <br>
@@ -35,16 +35,25 @@
 
     <!-- main page -->
     <!-- status circle to change based on status -->
-    <div class="statusCircle"></div>
-       <br><br>
+    {% if Machine_Status == "Fully Serviceable" %}
+    <div class="statusCircle" style="background-color: green"></div>
+    {% elif Machine_Status == "Clinical With Limitations" %}
+    <div class="statusCircle" style="background-color: orange"></div>
+    {% elif Machine_Status == "On Service / PMI" %}
+    <div class="statusCircle" style="background-color: blue"></div>
+    {% else %}
+    <div class="statusCircle" style="background-color: red"></div>
+    {% endif %}
+
+    <br><br>
     <div class="infoContainer">
         <text>
             <b>
-                Machine Name: <script>document.write(sessionStorage.getItem("machineName"))</script>
+                Machine Name: {{Machine_Name}}
                 <br>
-                Serial No:
+                Serial No: {{Serial_No}}
                 <br>
-                S/W Version:
+                S/W Version: {{SW_Version}}
             </b>
         </text>
     </div>
@@ -52,9 +61,9 @@
     <div class="infoContainer">
         <text>
             <b>
-                Current Status:
+                Current Status: {{Machine_Status}}
                 <br>
-                Current Owner:
+                Current Owner: {{Current_Owner}}
             </b>
         </text>
         <br> <br>

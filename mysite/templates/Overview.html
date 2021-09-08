@@ -31,7 +31,15 @@
             </div>
             <br>
             <!-- color to be changed using if statement based on current status of machine -->
-            <div class="circle" id="circleLA1"></div>
+             {% if LA1_status == "Fully Serviceable" %}
+             <div class="circle" style="background-color: green"></div>
+             {% elif LA1_status == "Clinical With Limitations" %}
+             <div class="circle" style="background-color: orange"></div>
+             {% elif LA1_status == "On Service / PMI" %}
+             <div class="circle" style="background-color: blue"></div>
+             {% else %}
+             <div class="circle" style="background-color: red"></div>
+             {% endif %}
             <br>
             <text>
                 Status: {{LA1_status}}
@@ -51,7 +59,15 @@
                 <img src="{% static 'Images/Linac.jpg' %}" alt="Linac">
             </div>
             <br>
-            <div class="circle" id="circleLA2"></div>
+             {% if LA2_status == "Fully Serviceable" %}
+             <div class="circle" style="background-color: green"></div>
+             {% elif LA2_status == "Clinical With Limitations" %}
+             <div class="circle" style="background-color: orange"></div>
+             {% elif LA2_status == "On Service / PMI" %}
+             <div class="circle" style="background-color: blue"></div>
+             {% else %}
+             <div class="circle" style="background-color: red"></div>
+             {% endif %}
             <br>
             <text>
                 Status: {{LA2_status}}
@@ -71,7 +87,15 @@
                 <img src="{% static 'Images/Linac.jpg' %}" alt="Linac">
             </div>
             <br>
-            <div class="circle" id="circleLA4"></div>
+             {% if LA4_status == "Fully Serviceable" %}
+             <div class="circle" style="background-color: green"></div>
+             {% elif LA4_status == "Clinical With Limitations" %}
+             <div class="circle" style="background-color: orange"></div>
+             {% elif LA4_status == "On Service / PMI" %}
+             <div class="circle" style="background-color: blue"></div>
+             {% else %}
+             <div class="circle" style="background-color: red"></div>
+             {% endif %}
             <br>
             <text>
                 Status: {{LA4_status}}
@@ -91,9 +115,15 @@
                  <img src="{% static 'Images/CT.jpg' %}" alt="CT">
              </div>
              <br>
-
-             <div class="circle" id="circleCT" style="background-color: orange"></script></div>
-
+             {% if CT_status == "Fully Serviceable" %}
+             <div class="circle" style="background-color: green"></div>
+             {% elif CT_status == "Clinical With Limitations" %}
+             <div class="circle" style="background-color: orange"></div>
+             {% elif CT_status == "On Service / PMI" %}
+             <div class="circle" style="background-color: blue"></div>
+             {% else %}
+             <div class="circle" style="background-color: red"></div>
+             {% endif %}
 
              <br>
              <text>
@@ -114,7 +144,15 @@
                 <img src="{% static 'Images/Brachy.jpg' %}" alt="Brachy">
             </div>
             <br>
-            <div class="circle" id="circleBrachy"></div>
+             {% if Brachy_status == "Fully Serviceable" %}
+             <div class="circle" style="background-color: green"></div>
+             {% elif Brachy_status == "Clinical With Limitations" %}
+             <div class="circle" style="background-color: orange"></div>
+             {% elif Brachy_status == "On Service / PMI" %}
+             <div class="circle" style="background-color: blue"></div>
+             {% else %}
+             <div class="circle" style="background-color: red"></div>
+             {% endif %}
             <br>
             <text>
                 Status: {{Brachy_status}}
