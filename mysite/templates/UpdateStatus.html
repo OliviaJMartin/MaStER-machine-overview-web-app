@@ -8,40 +8,41 @@
 </head>
 
 <body>
-  <h1>Status reporting: <script>outputMachine()</script></h1>
+  <h1>Status reporting: {{buttonChoiceValue}}</h1>
   <br><br>
   <div class="containContainers">
     <div class="inputContainer">
-      <text> <b> Reporting As: {{ User }}</b> </text> <!-- to take values from database -->
-      <br>
-      <text> <b> Reporting for: {{ Machine_Name }}</b> </text>
-      <br><br>
-      <text>Status:</text>
-      <br>
-
-        <!-- combo box for machine status options -->
-        <select name="status" id="status">
-          <option value="" selected="selected">Select status</option>
-          <option value="" >Fully Serviceable (Clinical)</option>
-          <option value="" >Clinical with some limitations</option>
-          <option value="" >On Service/PMI</option>
-          <option value="" >Unserviceable (not clinical)</option>
-        </select>
-        <br> <br>
-        <text>Description:</text>
+      <form method="POST">
+        {% csrf_token %}
+        <text> <b> Reporting As: {{ User }}</b> </text> <!-- to take values from database -->
         <br>
-        <input type="text" placeholder="Enter Description" name="description" id="description">
-        <br> <br>
-        <text>Comments:</text>
-        <textarea rows="5" id="multiLineInput"></textarea> <!-- multi-line textbox for comments -->
-        <br><br><br><br>
-        <!-- buttons to move to respective pages using connections.js -->
-        <a href="{% url 'machineStatus' %}"><button type="submit" id="submit">Submit</button></a>
+        <text> <b> Reporting for: {{ Machine_Name }}</b> </text>
         <br><br>
-        <a href="{% url 'updateStatus' %}"><button type="submit" id="discard">Discard</button></a>
+        <text>Status:</text>
         <br>
 
+          <!-- combo box for machine status options -->
+          <select name="status" id="status">
+            <option value="" selected="selected">Select status</option>
+            <option value="" >Fully Serviceable (Clinical)</option>
+            <option value="" >Clinical with some limitations</option>
+            <option value="" >On Service/PMI</option>
+            <option value="" >Unserviceable (not clinical)</option>
+          </select>
+          <br> <br>
+          <text>Description:</text>
+          <br>
+          <input type="text" placeholder="Enter Description" name="description" id="description">
+          <br> <br>
+          <text>Comments:</text>
+          <textarea rows="5" name="multiLineInput"></textarea> <!-- multi-line textbox for comments -->
+          <br><br><br><br>
+          <!-- buttons to move to respective pages using connections.js -->
+          <a href="{% url 'updateStatus' %}" name="submit"><button type="submit">Submit</button></a>
 
+          <br>
+
+      </form>
     </div>
     <!--static container to show options for status combo box -->
     <div class="keyContainer">
@@ -62,16 +63,6 @@
   </div>
 </body>
 <footer>
-  <script>
-    function set_user_values() {
-      var status = getElementById("status")
-      var description = getElementById("description")
-      var comments = getElementById("multiLineInput")
 
-      sessionStorage.setItem("status", status);
-      sessionStorage.setItem("description", description);
-      sessionStorage.setItem("comments", comments);
-    }
-  </script>
 </footer>
 </html>

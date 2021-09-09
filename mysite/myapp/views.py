@@ -5,6 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 # from .models import *
+import datetime
 
 
 class overview(View):
@@ -40,14 +41,17 @@ class overview(View):
 class loggingin(View):
     template = 'Login.html'
 
-    def get(self, request):
+    def get(self, request, machine):
         form = AuthenticationForm()
+        request.session['machineChosen'] = machine
+
         return render(request, self.template, context={
             'form': form,
-            'Machine_Name': 'LA4',
+            'Machine_Name': machine,
         }, )
 
-    def post(self, request):
+    def post(self, request, machine):
+        request.session['machineChosen'] = machine
         form = AuthenticationForm(request.POST)
         username = request.POST['username']
         password = request.POST['password']
@@ -58,41 +62,62 @@ class loggingin(View):
         else:
             return render(request, self.template, context={
                 'form': form,
-                'Machine_Name': 'LA4',
+                'Machine_Name': machine,
             }, )
 
 
 class status(LoginRequiredMixin, View):
     template = 'MachineStatus.html'
     login_url = '/login/'
-    Machine_Name = 'LA4'
+
     # database_status = MachineStatus.objects.filter(machineid=Machine_Name)
 
     def get(self, request):
+        machine = request.session.get("machineChosen")
         return render(request, self.template, context={
-                'Machine_Name': self.Machine_Name,
-                'Serial_No': '2459',
-                'SW_Version': 'TB v2.5',
-                'Machine_Status': 'Clinical With Limitations',
-                'Current_Owner': 'Olivia Martin',
-                'Start_Time': '',
-                'Database_Status': self.database_status,
-            },)
+            'Machine_Name': machine,
+            'Serial_No': '2459',
+            'SW_Version': 'TB v2.5',
+            'Machine_Status': 'Clinical With Limitations',
+            'Current_Owner': 'Olivia Martin',
+            'Start_Time': '',
+            'Database_Status': '',  # self.database_status,
+        }, )
 
 
 class loggingout(View):
-    template = 'Overview.html'
-
-    def get(self, request):
+    def get(self, request):  # needs a self.variable to be allowed
         logout(request)
         return HttpResponseRedirect('/')
 
 
 class update(View):
     template = 'UpdateStatus.html'
+    time = datetime.datetime.now()
 
-    def get(self, request):
+    def get(self, request, buttonChoice='get'):
+        machine = request.session.get("machineChosen")
         return render(request, self.template, context={
-                'Machine_Name': 'LA4',
-                'User': 'OlMartin',
-            },)
+            'Machine_Name': machine,
+            'User': 'OlMartin',
+        }, )
+
+    def post(self, request, buttonChoice='post'):
+        machine = request.session.get("machineChosen")
+
+        machine_status = machine + "_status"
+        machine_description = machine + "_description"
+        machine_comment = machine + "_comment"
+
+        status_ = request.POST['status']
+        request.session[machine_status] = status_
+
+        description = request.POST['description']
+        request.session[machine_description] = description
+
+        comments = request.POST['multiLineInput']
+        request.session[machine_comment] = comments
+
+        return HttpResponseRedirect('/machinestatus/')
+
+
