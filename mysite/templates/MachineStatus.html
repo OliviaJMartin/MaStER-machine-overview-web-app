@@ -7,30 +7,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'machineStatusStyle.css' %}">
 </head>
 <body>
+
     <h1>Machine Status Page</h1>
 
     <!-- pop up box for ending current status -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">X</span>
-            <p>
-                <b>Current session:
-                </b><br><br>
-                Machine - {{Machine_Name}}
-                <br>
-                Status - {{Machine_Status}}
-                <br>
-                Starting user - {{Current_Owner}}
-                <br>
-                starting time - {{Start_Time}}
-                <br><br>
-                Would you like to end the current session?
-                <br>
-            </p>
-            <button type="submit" id="yes">Yes</button>
-            <button type="submit" id="no">No</button>
-        </div>
-    </div>
+
     <!-- end of pop-up -->
 
     <!-- main page -->
@@ -46,6 +27,8 @@
     {% endif %}
 
     <br><br>
+
+    <!-- information to be displayed at the top of the page, left-hand side -->
     <div class="infoContainer">
         <text>
             <b>
@@ -58,6 +41,7 @@
         </text>
     </div>
 
+    <!-- information to be displayed at the top of the page, right-hand side -->
     <div class="infoContainer">
         <text>
             <b>
@@ -112,46 +96,9 @@
     <div class="BTNContainer">
         <!-- buttons when clicked move to respective pages using django urls from myapp urls -->
         <a href="{% url 'updateStatus' %}"><button type="Submit" id="add">Add New Status</button></a>
-        <button type="Submit" id="end">End Previous status</button>
         <a href="{% url 'logout' %}"><button type="Submit" id="logout">Logout</button></a>
     </div>
 
 </body>
-<footer>
-        <script type="text/javascript">
-            // Get the modal
-            var modal = document.getElementById("myModal");
 
-            // Get the button that opens the modal
-            var btn = document.getElementById("end");
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks on the button, open the modal
-            btn.onclick = function() {
-                modal.style.display = "block";
-            }
-
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
-
-            yes.onclick = function() {
-                modal.style.display = "none";
-            }
-
-            no.onclick = function() {
-                modal.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside the modal, close it
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        </script>
-</footer>
 </html>
