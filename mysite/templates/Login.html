@@ -1,42 +1,29 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<head>
 
+<head>
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="{% static 'loginStyle.css' %}">
 </head>
+
 <body>
-    <form method="POST">  <!-- POST used due to sensitive data -->
+    <form method="POST">  <!-- Form to login -->
         {% csrf_token %}
         <div class="login-container">
-            <h1><script>document.write(sessionStorage.getItem("machineName"))</script></h1> <!-- output the name of machine chosen -->
+            <h1>{{Machine_Name}}</h1> <!-- output the name of machine chosen -->
             <label><b>Username: </b></label>
             <br>
-            {{ form.username }}
+            {{ form.username }} <!-- input box for username -->
             <br>
             <label><b>Password: </b></label>
             <br>
-            {{ form.password }}
+            {{ form.password }} <!-- input box for password -->
             <h2></h2>
             <a href="{% url 'machineStatus' %}" onclick="return set_user();"><button type="Submit" id="enter">Login</button></a>
         </div>
     </form>
 </body>
-<footer>
-    <script type="text/javascript">
-        document.getElementById("id_username").classList.add("form-control");
-        document.getElementById("id_password").classList.add("form-control");
-        document.getElementById("id_username").placeholder = "Username";
-        document.getElementById("id_password").placeholder = "Password";
-        document.getElementById("id_username").type = "text";
-        document.getElementById("id_password").type = "password";
 
-        function set_user() {
-            username = document.getElementById("form.username");
-            sessionStorage.setItem("userName", username);
-        }
-    </script>
-</footer>
 </html>

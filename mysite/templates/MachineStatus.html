@@ -1,66 +1,54 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Machine Status</title>
     <link rel="stylesheet" type="text/css" href="{% static 'machineStatusStyle.css' %}">
 </head>
+
 <body>
     <h1>Machine Status Page</h1>
-
-    <!-- pop up box for ending current status -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">X</span>
-            <p>
-                <b>Current session:
-                </b><br><br>
-                Machine - <script>document.write(sessionStorage.getItem("machineName"))</script>
-                <br>
-                Status - <script>document.write(sessionStorage.getItem("status"))</script>
-                <br>
-                Starting user - <script>document.write(sessionStorage.getItem("userName"))</script>
-                <br>
-                starting time -
-                <br><br>
-                Would you like to end the current session?
-                <br>
-            </p>
-            <button type="submit" id="yes">Yes</button>
-            <button type="submit" id="no">No</button>
-        </div>
-    </div>
-    <!-- end of pop-up -->
-
-    <!-- main page -->
     <!-- status circle to change based on status -->
-    <div class="statusCircle"></div>
-       <br><br>
+    {% if Machine_Status == "Fully Serviceable" %}
+    <div class="statusCircle" style="background-color: green"></div>
+    {% elif Machine_Status == "Clinical With Limitations" %}
+    <div class="statusCircle" style="background-color: orange"></div>
+    {% elif Machine_Status == "On Service / PMI" %}
+    <div class="statusCircle" style="background-color: blue"></div>
+    {% else %}
+    <div class="statusCircle" style="background-color: red"></div>
+    {% endif %}
+
+    <br><br>
+
+    <!-- information to be displayed at the top of the page, left-hand side -->
     <div class="infoContainer">
         <text>
             <b>
-                Machine Name: <script>document.write(sessionStorage.getItem("machineName"))</script>
+                Machine Name: {{Machine_Name}}
                 <br>
-                Serial No:
+                Serial No: {{Serial_No}}
                 <br>
-                S/W Version:
+                S/W Version: {{SW_Version}}
             </b>
         </text>
     </div>
 
+    <!-- information to be displayed at the top of the page, right-hand side -->
     <div class="infoContainer">
         <text>
             <b>
-                Current Status:
+                Current Status: {{Machine_Status}}
                 <br>
-                Current Owner:
+                Current Owner: {{Current_Owner}}
             </b>
         </text>
         <br> <br>
     </div>
 
-    <div style="overflow-x:auto;"> <!-- scroll bar turns up if screen is too small to show all data -->
+    <div class="tableBox"> <!-- scroll bar turns up if screen is too small to show all data -->
         <table class = "handoverTable">
             <!-- Header values -->
             <thead>
@@ -76,7 +64,7 @@
             </thead>
             <!-- table rows values: -->
             <tbody>
-                <tr> <!-- too be filled with data from database. currently dummy values -->
+                <tr> <!-- to be filled with data from database. Currently, dummy values -->
                     <td>10/07/2021 07:30</td>
                     <td>Techie T</td>
                     <td>10/07/2021 13:30</td>
@@ -84,6 +72,24 @@
                     <td>Treatment</td>
                     <td>Clinical with limitations</td>
                     <td>dummy values</td>
+                </tr>
+                <tr>
+                    <td>10/07/2021 06:00</td>
+                    <td>Rad R</td>
+                    <td>10/07/2021 07:30</td>
+                    <td>Techie T</td>
+                    <td>run up & Daily QA</td>
+                    <td>Clinically ready</td>
+                    <td>Dummy values</td>
+                </tr>
+            <tr>
+                    <td>10/07/2021 06:00</td>
+                    <td>Rad R</td>
+                    <td>10/07/2021 07:30</td>
+                    <td>Techie T</td>
+                    <td>run up & Daily QA</td>
+                    <td>Clinically ready</td>
+                    <td>Dummy values</td>
                 </tr>
                 <tr>
                     <td>10/07/2021 06:00</td>
@@ -103,46 +109,8 @@
     <div class="BTNContainer">
         <!-- buttons when clicked move to respective pages using django urls from myapp urls -->
         <a href="{% url 'updateStatus' %}"><button type="Submit" id="add">Add New Status</button></a>
-        <button type="Submit" id="end">End Previous status</button>
         <a href="{% url 'logout' %}"><button type="Submit" id="logout">Logout</button></a>
     </div>
-
 </body>
-<footer>
-        <script type="text/javascript">
-            // Get the modal
-            var modal = document.getElementById("myModal");
 
-            // Get the button that opens the modal
-            var btn = document.getElementById("end");
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks on the button, open the modal
-            btn.onclick = function() {
-                modal.style.display = "block";
-            }
-
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
-
-            yes.onclick = function() {
-                modal.style.display = "none";
-            }
-
-            no.onclick = function() {
-                modal.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside the modal, close it
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        </script>
-</footer>
 </html>

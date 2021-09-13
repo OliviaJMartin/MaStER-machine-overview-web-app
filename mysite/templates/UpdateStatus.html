@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Updating Status</title>
@@ -8,42 +9,45 @@
 </head>
 
 <body>
-  <h1>Status reporting: <script>outputMachine()</script></h1>
+  <h1>Status reporting:</h1>
   <br><br>
   <div class="containContainers">
+    <!-- left-sided div for inputs -->
     <div class="inputContainer">
-      <text> <b> Reporting As: <script> document.write(sessionStorage.getItem("userName"))  </script> </b> </text> <!-- to take values from database -->
-      <br>
-      <text> <b> Reporting for: <script>document.write(sessionStorage.getItem("machineName"))</script></b> </text>
-      <br><br>
-      <text>Status:</text>
-      <br>
-
-        <!-- combo box for machine status options -->
-        <select name="status" id="status">
-          <option value="" selected="selected">Select status</option>
-          <option value="" >Fully Serviceable (Clinical)</option>
-          <option value="" >Clinical with some limitations</option>
-          <option value="" >On Service/PMI</option>
-          <option value="" >Unserviceable (not clinical)</option>
-        </select>
-        <br> <br>
-        <text>Description:</text>
+      <form method="POST">
+        {% csrf_token %}
+        <text> <b> Reporting As: {{ User }}</b> </text> <!-- to take values from database -->
         <br>
-        <input type="text" placeholder="Enter Description" name="description" id="description">
+        <text> <b> Reporting for: {{ Machine_Name }}</b> </text>
         <br> <br>
-        <text>Comments:</text>
-        <textarea rows="5" id="multiLineInput"></textarea> <!-- multi-line textbox for comments -->
-        <br><br><br><br>
-        <!-- buttons to move to respective pages using connections.js -->
-        <a href="{% url 'machineStatus' %}"><button type="submit" id="submit">Submit</button></a>
-        <br><br>
-        <a href="{% url 'updateStatus' %}"><button type="submit" id="discard">Discard</button></a>
+
+        <text>Status:</text>
         <br>
+          <!-- drop-down box for machine status options -->
+          <select name="status" id="status">
+            <option value="1" selected="selected">Select status</option>
+            <option value="2" >Fully Serviceable (Clinical)</option>
+            <option value="3" >Clinical with some limitations</option>
+            <option value="4" >On Service/PMI</option>
+            <option value="5" >Unserviceable (not clinical)</option>
+          </select>
+          <br> <br>
 
+          <text>Description:</text>
+          <input type="text" placeholder="Enter Description" name="description" id="description">
+          <br> <br>
 
+          <text>Comments:</text>
+          <textarea rows="5" name="multiLineInput"></textarea> <!-- multi-line textbox for comments -->
+          <br> <br> <br> <br>
+
+          <a href="{% url 'updateStatus' %}" name="submit"><button type="submit">Submit</button></a>
+          <br>
+
+      </form>
     </div>
-    <!--static container to show options for status combo box -->
+
+    <!--right-sided container showing options for status combo box -->
     <div class="keyContainer">
       <text> <b> Status Key: </b></text>
       <br> <br>
@@ -52,26 +56,14 @@
       <br> <br> <br>
       <div id="circleLimitations"></div>
       <text>Clinical with some limitations</text>
-      <br> <br><br>
+      <br> <br> <br>
       <div id="circleService"></div>
       <text>On Service / PMI</text>
       <br> <br> <br>
       <div id="circleUnserviceable"></div>
       <text>Unserviceable (not clinical - i.e. ongoing fault)</text>
     </div>
+
   </div>
 </body>
-<footer>
-  <script>
-    function set_user_values() {
-      var status = getElementById("status")
-      var description = getElementById("description")
-      var comments = getElementById("multiLineInput")
-
-      sessionStorage.setItem("status", status);
-      sessionStorage.setItem("description", description);
-      sessionStorage.setItem("comments", comments);
-    }
-  </script>
-</footer>
 </html>
