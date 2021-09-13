@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Machine Status</title>
     <link rel="stylesheet" type="text/css" href="{% static 'machineStatusStyle.css' %}">
 </head>
+
 <body>
-
     <h1>Machine Status Page</h1>
-
-    <!-- pop up box for ending current status -->
-
-    <!-- end of pop-up -->
-
-    <!-- main page -->
     <!-- status circle to change based on status -->
     {% if Machine_Status == "Fully Serviceable" %}
     <div class="statusCircle" style="background-color: green"></div>
@@ -53,7 +48,7 @@
         <br> <br>
     </div>
 
-    <div style="overflow-x:auto;"> <!-- scroll bar turns up if screen is too small to show all data -->
+    <div class="tableBox"> <!-- scroll bar turns up if screen is too small to show all data -->
         <table class = "handoverTable">
             <!-- Header values -->
             <thead>
@@ -69,7 +64,7 @@
             </thead>
             <!-- table rows values: -->
             <tbody>
-                <tr> <!-- to be filled with data from database. currently dummy values -->
+                <tr> <!-- to be filled with data from database. Currently, dummy values -->
                     <td>10/07/2021 07:30</td>
                     <td>Techie T</td>
                     <td>10/07/2021 13:30</td>
@@ -77,6 +72,24 @@
                     <td>Treatment</td>
                     <td>Clinical with limitations</td>
                     <td>dummy values</td>
+                </tr>
+                <tr>
+                    <td>10/07/2021 06:00</td>
+                    <td>Rad R</td>
+                    <td>10/07/2021 07:30</td>
+                    <td>Techie T</td>
+                    <td>run up & Daily QA</td>
+                    <td>Clinically ready</td>
+                    <td>Dummy values</td>
+                </tr>
+            <tr>
+                    <td>10/07/2021 06:00</td>
+                    <td>Rad R</td>
+                    <td>10/07/2021 07:30</td>
+                    <td>Techie T</td>
+                    <td>run up & Daily QA</td>
+                    <td>Clinically ready</td>
+                    <td>Dummy values</td>
                 </tr>
                 <tr>
                     <td>10/07/2021 06:00</td>
@@ -98,7 +111,6 @@
         <a href="{% url 'updateStatus' %}"><button type="Submit" id="add">Add New Status</button></a>
         <a href="{% url 'logout' %}"><button type="Submit" id="logout">Logout</button></a>
     </div>
-
 </body>
 
 </html>

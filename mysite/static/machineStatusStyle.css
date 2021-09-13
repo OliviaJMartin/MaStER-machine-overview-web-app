@@ -31,6 +31,11 @@ text{font-size: 20px;}
     border-radius: 50%; /* making it a circle */
 }
 
+.tableBox {
+    overflow-x:auto;
+    height: 300px;
+}
+
 .handoverTable {
     width: 90%;
     Height: 70%;
