@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+LA1: {{LA1_status}} > {{LA1_user}} > {{LA1_time}}
+<br>
+LA2: {{LA2_status}} > {{LA2_user}} > {{LA2_time}}
+<br>
+LA4: {{LA4_status}} > {{LA4_user}} > {{LA4_time}}
+<br>
+CT: {{CT_status}} > {{CT_user}} > {{CT_time}}
+<br>
+Brachy: {{Brachy_status}} > {{Brachy_user}} > {{Brachy_time}}
+
+<a href="{% url 'machineStatus' %}" name="submit"><button type="submit">Next</button></a>
+</body>
+</html>
