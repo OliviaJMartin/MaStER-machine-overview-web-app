@@ -9,18 +9,18 @@
 </head>
 
 <body>
-    <h1>Machine Status Page</h1>
+    <h1>Machine Status:
     <!-- status circle to change based on status -->
-    {% if Machine_Status == "Fully Serviceable" %}
+    {% if Machine_Status == "Fully Serviceable (Clinical)" %}
     <div class="statusCircle" style="background-color: green"></div>
-    {% elif Machine_Status == "Clinical With Limitations" %}
+    {% elif Machine_Status == "Clinical with limitations" %}
     <div class="statusCircle" style="background-color: orange"></div>
-    {% elif Machine_Status == "On Service / PMI" %}
+    {% elif Machine_Status == "On Service/PMI" %}
     <div class="statusCircle" style="background-color: blue"></div>
     {% else %}
     <div class="statusCircle" style="background-color: red"></div>
     {% endif %}
-
+    </h1>
     <br><br>
 
     <!-- information to be displayed at the top of the page, left-hand side -->

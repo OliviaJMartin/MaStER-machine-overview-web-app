@@ -25,10 +25,9 @@ text{font-size: 20px;}
 .statusCircle {
     width: 50px;
     height: 50px;
-    margin-left: auto;
-    margin-right: auto;
     background: green;
     border-radius: 50%; /* making it a circle */
+    display:inline-block;
 }
 
 .tableBox {
@@ -43,6 +42,7 @@ text{font-size: 20px;}
     margin:auto;
     min-width: 500px;
     font-size: 20px;
+    border: 3px solid black;
 }
 
 .handoverTable thead tr { /* tr = table row*/
@@ -65,7 +65,7 @@ text{font-size: 20px;}
     column-rule: 4px double #ff00ff; /*grey*/
 }
 
-.handoverTable tbody tr:hover {background-color: #a6a6a6;} /* light grey */
+.handoverTable tbody tr:nth-child(1) {border: 3px solid black;} /* light grey */
 
 .BTNContainer {
     width: 50%;

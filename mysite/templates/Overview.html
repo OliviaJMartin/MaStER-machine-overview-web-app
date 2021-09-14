@@ -9,7 +9,7 @@
 
 <body>
     <div class="titleContainer"> <!-- title and brief explanation of what to do -->
-        <h1>Machine Overview <br></h1>
+        <h1>Machine Overview: {{machine_status}} <br></h1>
         <text>
             Click on a machine icon to log in and update status.
         </text>
@@ -23,11 +23,11 @@
             </div>
             <br>
              <!-- conditional statement changing colours of circle div -->
-             {% if LA1_status == "Fully Serviceable" %}
+             {% if LA1_status == "Fully Serviceable (Clinical)" %}
              <div class="circle" style="background-color: green"></div>
-             {% elif LA1_status == "Clinical With Limitations" %}
+             {% elif LA1_status == "Clinical with limitations" %}
              <div class="circle" style="background-color: orange"></div>
-             {% elif LA1_status == "On Service / PMI" %}
+             {% elif LA1_status == "On Service/PMI" %}
              <div class="circle" style="background-color: blue"></div>
              {% else %}
              <div class="circle" style="background-color: red"></div>
@@ -36,7 +36,7 @@
 
             <!-- LA1's information from dictionary-->
             <text>
-                <br><br>
+                <br>
                 Status: {{LA1_status}}
                 <br><br>
                 Last reported: {{LA1_time}}
@@ -55,11 +55,11 @@
             </div>
             <br>
             <!-- conditional statement changing colours of circle div -->
-             {% if LA2_status == "Fully Serviceable" %}
+             {% if LA2_status == "Fully Serviceable (Clinical)" %}
              <div class="circle" style="background-color: green"></div>
-             {% elif LA2_status == "Clinical With Limitations" %}
+             {% elif LA2_status == "Clinical with limitations" %}
              <div class="circle" style="background-color: orange"></div>
-             {% elif LA2_status == "On Service / PMI" %}
+             {% elif LA2_status == "On Service/PMI" %}
              <div class="circle" style="background-color: blue"></div>
              {% else %}
              <div class="circle" style="background-color: red"></div>
@@ -68,7 +68,7 @@
 
             <!-- LA2's information from dictionary-->
             <text>
-                <br><br>
+                <br>
                 Status: {{LA2_status}}
                 <br><br>
                 Last reported: {{LA2_time}}
@@ -87,11 +87,11 @@
             </div>
             <br>
              <!-- conditional statement changing colours of circle div -->
-             {% if LA4_status == "Fully Serviceable" %}
+             {% if LA4_status == "Fully Serviceable (Clinical)" %}
              <div class="circle" style="background-color: green"></div>
-             {% elif LA4_status == "Clinical With Limitations" %}
+             {% elif LA4_status == "Clinical with limitations" %}
              <div class="circle" style="background-color: orange"></div>
-             {% elif LA4_status == "On Service / PMI" %}
+             {% elif LA4_status == "On Service/PMI" %}
              <div class="circle" style="background-color: blue"></div>
              {% else %}
              <div class="circle" style="background-color: red"></div>
@@ -100,7 +100,7 @@
 
             <!-- LA4's information from dictionary-->
             <text>
-                <br><br>
+                <br>
                 Status: {{LA4_status}}
                 <br><br>
                 Last reported: {{LA4_time}}
@@ -119,11 +119,11 @@
              </div>
              <br>
              <!-- conditional statement changing colours of circle div -->
-             {% if CT_status == "Fully Serviceable" %}
+             {% if CT_status == "Fully Serviceable (Clinical)" %}
              <div class="circle" style="background-color: green"></div>
-             {% elif CT_status == "Clinical With Limitations" %}
+             {% elif CT_status == "Clinical with limitations" %}
              <div class="circle" style="background-color: orange"></div>
-             {% elif CT_status == "On Service / PMI" %}
+             {% elif CT_status == "On Service/PMI" %}
              <div class="circle" style="background-color: blue"></div>
              {% else %}
              <div class="circle" style="background-color: red"></div>
@@ -133,7 +133,7 @@
 
              <!-- CT's information from dictionary-->
              <text>
-                 <br><br>
+                 <br>
                 Status: {{CT_status}}
                 <br><br>
                 Last reported: {{CT_time}}
@@ -152,11 +152,11 @@
             </div>
             <br>
             <!-- conditional statement changing colours of circle div -->
-             {% if Brachy_status == "Fully Serviceable" %}
+             {% if Brachy_status == "Fully Serviceable (Clinical)" %}
              <div class="circle" style="background-color: green"></div>
-             {% elif Brachy_status == "Clinical With Limitations" %}
+             {% elif Brachy_status == "Clinical with limitations" %}
              <div class="circle" style="background-color: orange"></div>
-             {% elif Brachy_status == "On Service / PMI" %}
+             {% elif Brachy_status == "On Service/PMI" %}
              <div class="circle" style="background-color: blue"></div>
              {% else %}
              <div class="circle" style="background-color: red"></div>
@@ -165,7 +165,7 @@
 
             <!-- Brachy's information from dictionary-->
             <text>
-                <br><br>
+                <br>
                 Status: {{Brachy_status}}
                 <br><br>
                 Last reported: {{Brachy_time}}

@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'core.apps.CoreConfig',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +64,7 @@ TEMPLATES = [
         },
     },
 ]
-
+SESSION_SAVE_EVERY_REQUEST = True
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
@@ -106,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'GMT'
 
 USE_I18N = True
 
