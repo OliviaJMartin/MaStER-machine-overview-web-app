@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'myapp',
 ]
 
 MIDDLEWARE = [
@@ -72,14 +73,20 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'electronicHandover',
-        'HOST': 'IT034122\SQLEXPRESS',
-        'PORT': '',
-        'OPTIONS': {
-            'driver': 'ODBC Driver 13 for SQL Server',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': str(os.path.join(BASE_DIR, "db.sqlite3"))
     },
+
+    #    'default': {
+    #        'ENGINE': 'sql_server.pyodbc',
+    #        'NAME': 'machine_status',
+    #        'HOST': 'IT034122\SQLEXPRESS',
+    #        'PORT': '',
+    #        'OPTIONS': {
+    #            'driver': 'ODBC Driver 13 for SQL Server',
+    #        },
+    #    },
+
 }
 
 # Password validation

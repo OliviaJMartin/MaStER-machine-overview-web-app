@@ -110,8 +110,6 @@ class status(LoginRequiredMixin, View):
     template = 'MachineStatus.html'
     login_url = '/login/'
 
-    # database_status = MachineStatus.objects.filter(machineid=Machine_Name)
-
     def get(self, request):
         loggedIn = request.session.get("loggedIn")
 
@@ -121,28 +119,32 @@ class status(LoginRequiredMixin, View):
         machine = request.session.get("machineChosen")
         if machine == 'LA1':
             statusUser = request.session.get("LA1_currentUser")
+            currentStatus = request.session.get("LA1_status")
             statusTime = request.session.get("LA1_time")
         elif machine == 'LA2':
             statusUser = request.session.get("LA2_currentUser")
+            currentStatus = request.session.get("LA2_status")
             statusTime = request.session.get("LA2_time")
         elif machine == 'LA3':
             statusUser = request.session.get("LA4_currentUser")
+            currentStatus = request.session.get("LA4_status")
             statusTime = request.session.get("LA4_time")
         elif machine == 'CT':
             statusUser = request.session.get("CT_currentUser")
+            currentStatus = request.session.get("CT_status")
             statusTime = request.session.get("CT_time")
         else:
             statusUser = request.session.get("Brachytherapy_currentUser")
+            currentStatus = request.session.get("Brachytherapy_status")
             statusTime = request.session.get("Brachytherapy_time")
 
         return render(request, self.template, context={
             'Machine_Name': machine,
             'Serial_No': '2459',
             'SW_Version': 'TB v2.5',
-            'Machine_Status': 'Clinical With Limitations',
+            'Machine_Status': currentStatus,
             'Current_Owner': statusUser,
             'Start_Time': statusTime,
-            'Database_Status': '',  # self.database_status,
         }, )
 
 
